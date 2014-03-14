@@ -12,6 +12,14 @@ class Board < ActiveRecord::Base
   end
 
   def as_json(options = {})
-    super(options.merge(include: :members))
+    super(options.merge(include: [:members, :lists]))
+    # super(options.merge(include: :members))
+  end
+  
+  def to_builder
+    Jbuilder.encode do |json|
+      json.content formatcontent(@boards.content)
+      json.(@board, :id, :title, :created_at, :updated_at)
+    end
   end
 end
