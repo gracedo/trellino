@@ -1,6 +1,7 @@
 Trellino.Routers.Boards = Backbone.Router.extend({
   routes: {
-    "": "index"
+    "": "index",
+    "boards/:id": "show"
   },
   
   index: function() {
@@ -12,12 +13,21 @@ Trellino.Routers.Boards = Backbone.Router.extend({
     this._swapView(boardsIndexView);
   },
   
-  _swapview: function(view) {
+  show: function(id) {
+    var boardsShowView = new Trellino.Views.BoardsShow({
+      model: Trellino.Collections.boards.get(id)
+    })
+    
+    Trellino.Collections.boards.fetch();
+    this._swapView(boardsShowView);
+  },
+  
+  _swapView: function(view) {
     if(this.currentView) {
       this.currentView.remove();
     }
     
     this.currentView = view;
-    $('.boards').append(view.render().$el)
+    $('.container').append(view.render().$el)
   }
 });

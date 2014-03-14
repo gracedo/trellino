@@ -1,5 +1,7 @@
+Boards for current user
+
 <ul>
   <% boards.each(function(board) { %>
-    <li><%= board.title %></li>
+    <li><a href="/#/boards/<%= board.escape("id") %>"><%= board.get('title') %></a></li>
   <% }) %>
 </ul>

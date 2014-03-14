@@ -1,16 +1,16 @@
-Trellino.Views.BoardsIndex = Backbone.View.extend({
-  template: JST['boards/index'],
+Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
+  template: JST['boards/show'],
   
   initialize: function(options) {
-    this.collection = options.collection;
+    this.model = options.model
   },
   
   render: function() {
     var renderedContent = this.template({
-      boards: this.collection
+      board: this.model
     })
     
     this.$el.html(renderedContent);
     return this;
   }
-});
+})
