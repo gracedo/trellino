@@ -6,7 +6,6 @@ Trellino.Models.Board = Backbone.Model.extend({
       this.lists().set(jsonResponse.lists);
       delete jsonResponse.lists;
     }
-    debugger
     return jsonResponse;
   },
   
