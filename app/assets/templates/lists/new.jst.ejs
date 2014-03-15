@@ -1,0 +1,14 @@
+<h4>Add List</h4>
+
+<form role="form">
+  <div class="form-group">
+    <input type="hidden" name="list[board_id]" value="<%= boardID %>" id="list_board_id">
+
+    <input type="hidden" name="list[rank]" value="<%= rank %>" id="list_rank">
+    
+    <label for="title">Title</label>
+    <input type="text" name="list[title]" class="form-control" id="title" placeholder="Untitled List">
+  </div>
+  
+  <button type="submit" class="new-list btn btn-default">Create</button>
+</form>

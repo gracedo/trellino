@@ -19,13 +19,11 @@ Trellino.Views.BoardsForm = Backbone.View.extend({
   submit: function(event) {
     event.preventDefault();
     
-    var formData = $(event.currentTarget.form).serializeJSON();
-    this.model.set(formData);
+    var $formData = $(event.currentTarget.form).serializeJSON();
+    this.model.set($formData);
     
     this.collection.create(this.model, {
       success: function(board) {
-        alert("board created and saved!");
-        debugger
         Backbone.history.navigate('#/boards/' + board.id, { trigger: true })
       }
     })

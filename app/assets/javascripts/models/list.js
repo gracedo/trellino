@@ -1,1 +1,2 @@
-Trellino.Models.List = Backbone.Model.extend({});
+Trellino.Models.List = Backbone.Model.extend({
+});

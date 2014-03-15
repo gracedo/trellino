@@ -10,7 +10,7 @@
   <nav class="navbar nav-default navbar-inverse" role="navigation">
     <div class="navbar-inner">
       <ul class="nav nav-pills">
-        <li><a href="/#/boards">Boards</a></li>
+        <li><a href="#/">Boards</a></li>
         
         <form class="navbar-form navbar-left" role="search">
           <div class="form-group">
@@ -25,7 +25,7 @@
 
         <% if signed_in? %>
           <ul class="nav nav-pills navbar-right">
-            <li><a href="/#/boards/new">[+ Add Board]</a></li>
+            <li><a href="#/boards/new">[+] Add Board</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %> <b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -36,7 +36,7 @@
                 <li><a href="#">Settings</a></li>
                 <li class="divider"></li>
                 <li><a href="#">Help</a></li>
-                <li><a href="#">Share Trello</a></li>
+                <li><a href="#">Share Trellino</a></li>
                 <li class="divider"></li>
                 <li><%= link_to "Log Out", session_url, method: :delete %></li>
               </ul>

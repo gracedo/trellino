@@ -57,11 +57,11 @@ Backbone.CompositeView = Backbone.View.extend({
   renderSubviews: function() {
     var view = this;
     
-    this.subviews().each(function(selectorSubviews, selector) {
+    _(this.subviews()).each(function(selectorSubviews, selector) {
       var $selectorEl = view.$(selector);
       $selectorEl.empty();
       
-      selectorSubviews.each(function(subview) {
+     _(selectorSubviews).each(function(subview) {
         $selectorEl.append(subview.render().$el);
         subview.delegateEvents();
       })
