@@ -1,13 +1,26 @@
-<h1>Sign In</h1>
-<form action="<%= session_url %>" method="POST">
-	<label for="email">Email</label>
-	<input id="email" type="text" name="user[email]">
-	
-	
-	<label for="password">Password</label>
-	<input id="password" type="password" name="user[password]">
-	
-	<input id="logout" type='submit' value='Login'>
-</form>
+<div class="row">
+  <div class="col-md-4 col-md-offset-1">
+    
+    <h1>Sign In</h1>
+    <br>
+    
+    <form action="<%= session_url %>" method="POST" role="form">
 
-<a href="<%= new_user_url %>">New to Trellino?</a>
+      <div class="form-group">
+      	<label for="email">Email</label>
+      	<input id="email" type="text" name="user[email]">
+      </div>
+
+      <div class="form-group">
+      	<label for="password">Password</label>
+      	<input id="password" type="password" name="user[password]">
+      </div>
+
+      <!-- <input id="logout" type='submit' value='Login'> -->
+      <button type="submit" class="sign-in btn btn-default">Sign In</button>
+    </form>
+    
+    <br>
+    <a href="<%= new_user_url %>">New to Trellino?</a>
+  </div>
+</div>
