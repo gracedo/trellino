@@ -13,6 +13,10 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
       this.addList.bind(this)
     )
     
+    this.members.each(
+      this.addMember.bind(this)
+    )
+    
     // var listNewView = new Trellino.Views.ListNew({
     //   model: this.model,
     //   collection: this.lists
@@ -22,15 +26,16 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
   },
   
   events: {
-    "click button.new-list": "addListForm"
+    "click button.new-list": "addListForm",
+    "click button.new-member": "addMemberForm"
   },
   
   render: function() {
     var renderedContent = this.template({
       board: this.model,
       lists: this.lists
-    })
-
+    });
+    
     this.$el.html(renderedContent);
     this.renderSubviews();
     return this;
@@ -48,6 +53,17 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
     $('.new-list-form').html(listNewView.render().$el)
   },
   
+  addMemberForm: function(event) {
+    $(event.target).addClass("hidden");
+    
+    var memberNewView = new Trellino.Views.MemberNew({
+      board: this.model,
+      lists: this.lists
+    });
+
+    $('.new-member-form').html(memberNewView.render().$el)
+  },
+  
   addList: function(list) {
     var listsShowView = new Trellino.Views.ListsShow({
       model: list
@@ -55,5 +71,14 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
     
     this.addSubview(".lists", listsShowView);
     listsShowView.render();
+  },
+  
+  addMember: function(member) {
+    var membersShowView = new Trellino.Views.MembersShow({
+      model: member
+    });
+    
+    this.addSubview(".board-members", membersShowView);
+    membersShowView.render();
   }
 })

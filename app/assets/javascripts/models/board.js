@@ -27,7 +27,7 @@ Trellino.Models.Board = Backbone.Model.extend({
   
   members: function() {
     if(!this._members){
-      this._members = new Trellino.Collections.Members([], {
+      this._members = new Trellino.Collections.Users([], {
         board: this
       });
     }
