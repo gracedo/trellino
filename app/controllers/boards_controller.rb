@@ -13,6 +13,9 @@ class BoardsController < ApplicationController
       format.html { render :index }
       format.json { render :json => @boards }
     end
+    
+    # @boards = Board.includes(:lists, :cards).all
+    # render :index
   end
 
   def show

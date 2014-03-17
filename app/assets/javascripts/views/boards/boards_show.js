@@ -2,14 +2,14 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
   template: JST['boards/show'],
   
   initialize: function(options) {
-    this.model = options.model;
+    // this.model = options.model;
     this.lists = this.model.lists();
     this.members = this.model.members();
+    // this.cards = this.model.cards();
     
     this.listenTo(this.model, "sync remove", this.render);
     this.listenTo(this.lists, "add", this.addList);
     this.listenTo(this.members, "add", this.addMember);
-    // this.listenTo(this.lists, "sync", this.lists.each(this.addList.bind(this)));
     // this.listenTo(this.lists, "sync remove", this.render);
 
     this.lists.each(
@@ -19,6 +19,10 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
     this.members.each(
       this.addMember.bind(this)
     )
+    
+    // this.cards.each(
+    //   this.addCard.bind(this)
+    // )
   },
   
   events: {
@@ -63,7 +67,8 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
   
   addList: function(list) {
     var listsShowView = new Trellino.Views.ListsShow({
-      model: list
+      model: list// ,
+//       cards: this.cards
     });
     
     this.addSubview(".lists", listsShowView);
@@ -90,5 +95,21 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
         console.log("error deleting board " + model.id + ", titled " + model.get("title"))
       }
     });
-  }
+  }// ,
+//   
+//   addCard: function(card) {
+//     var cardsShowView = new Trellino.Views.CardsShow({
+//       model: card
+//     });
+//     
+//     var listID = card.get("list_id");
+//     debugger
+//     var listShowView = new Trellino.Views.ListsShow({
+//       model: this.lists.get(listID)// ,
+// //       cards: this.cards
+//     });
+//     
+//     listShowView.addSubview(".cards", cardsShowView);
+//     cardsShowView.render();
+//   }
 })

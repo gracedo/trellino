@@ -1,5 +1,14 @@
 <li>
   <%= list.escape("title") %> <button class="remove-list btn btn-default btn-xs">Remove</button>
   
-  <ul class="cards"></ul>
+  <ul>
+    <% if(cards.length !== 0) { %>
+      
+      <li>Cards</li>
+      
+      <ul class="cards">
+      </ul>
+      
+    <% } %>
+  </ul>
 </li>
