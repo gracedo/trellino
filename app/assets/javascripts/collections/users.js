@@ -3,4 +3,4 @@ Trellino.Collections.Users = Backbone.Collection.extend({
   url: '/users'
 });
 
-Trellino.Collections.users = new Trellino.Collections.Users();
+// Trellino.Collections.users = new Trellino.Collections.Users();
