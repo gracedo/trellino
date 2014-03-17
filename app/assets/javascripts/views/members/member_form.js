@@ -23,23 +23,8 @@ Trellino.Views.MemberForm = Backbone.View.extend({
   
   create: function(event) {
     var view = this;
-    
     event.preventDefault();
-    // var $formData = $(event.currentTarget.form).serializeJSON().board_assignments;
-    
-    // $formData.board_assignments[user_id] = 
-    
     var email = $(event.currentTarget.form).serializeJSON().user_email;
-    
-    // var memberData = Trellino.Collections.users.get(email);
-    // Trellino.Collections.users.fetch();
-    
-    // var userId = memberData.id
-    // 
-    // var newMember = new Trellino.Models.User({
-    //   board_id: this.board.id,
-    //   user_id: userId
-    // })
     
     this.board.save({ newMemberEmail: email }, {
       success: function() {
@@ -48,21 +33,8 @@ Trellino.Views.MemberForm = Backbone.View.extend({
         // Backbone.history.navigate('', { trigger: true })
       },
       error: function() {
-        console.log("error");
+        console.log("error - member not found");
       }
     })
-    
-    // var newMember = new Trellino.Models.User($formData);
-    // this.members.create(newMember, {
-    //   success: function() {
-    //     // console.log(list)
-    //     console.log("successfully added member");
-    //     // Backbone.history.navigate('', { trigger: true })
-    //   },
-    //   
-    //   error: function() {
-    //     console.log("error");
-    //   }
-    // })
   }
 })

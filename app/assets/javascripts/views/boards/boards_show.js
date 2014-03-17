@@ -6,9 +6,10 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
     this.lists = this.model.lists();
     this.members = this.model.members();
     
-    this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.model, "sync remove", this.render);
     this.listenTo(this.lists, "add", this.addList);
-    this.listenTo(this.members, "add", this.addMember)
+    this.listenTo(this.members, "add", this.addMember);
+    // this.listenTo(this.model, "remove", this.removeBoard)
 
     this.lists.each(
       this.addList.bind(this)
@@ -17,18 +18,12 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
     this.members.each(
       this.addMember.bind(this)
     )
-    
-    // var listNewView = new Trellino.Views.ListForm({
-    //   model: this.model,
-    //   collection: this.lists
-    // });
-    // 
-    // this.addSubview(".new-list-form", listNewView);
   },
   
   events: {
     "click button.new-list": "addListForm",
-    "click button.new-member": "addMemberForm"
+    "click button.new-member": "addMemberForm",
+    "click button.remove-board": "removeBoard"
   },
   
   render: function() {
@@ -50,7 +45,6 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
       lists: this.lists
     });
     
-    // this.addSubview(".new-list-form", listNewView);
     $('.new-list-form').html(listFormView.render().$el);
   },
   
@@ -82,5 +76,18 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
     
     this.addSubview(".board-members", membersShowView);
     membersShowView.render();
+  },
+  
+  removeBoard: function() {
+    this.remove(); // remove board subviews
+    this.model.destroy({
+      success: function(model) {
+        console.log("deleted board " + model.id + ", titled " + model.get("title"));
+        Backbone.history.navigate('', { trigger: true })
+      },
+      error: function(model) {
+        console.log("error deleting board " + model.id + ", titled " + model.get("title"))
+      }
+    });
   }
 })
