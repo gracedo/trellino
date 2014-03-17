@@ -30,7 +30,6 @@ Trellino.Views.MemberForm = Backbone.View.extend({
       success: function() {
         // console.log(list)
         console.log("successfully added member");
-        // Backbone.history.navigate('', { trigger: true })
       },
       error: function() {
         console.log("error - member not found");

@@ -30,7 +30,6 @@ Trellino.Views.ListForm = Backbone.View.extend({
       success: function() {
         // console.log(list)
         console.log("successfully added list");
-        // Backbone.history.navigate('', { trigger: true })
       },
       
       error: function() {
