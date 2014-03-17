@@ -17,12 +17,12 @@ Trellino.Routers.Boards = Backbone.Router.extend({
   },
   
   new: function() {
-    var boardsFormView = new Trellino.Views.BoardsForm({
+    var boardFormView = new Trellino.Views.BoardForm({
       model: new Trellino.Models.Board(),
       collection: Trellino.Collections.boards
     })
     
-    this._swapView(boardsFormView);
+    this._swapView(boardFormView);
   },
   
   show: function(id) {

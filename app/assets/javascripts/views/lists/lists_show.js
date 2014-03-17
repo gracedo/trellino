@@ -11,7 +11,8 @@ Trellino.Views.ListsShow = Backbone.View.extend({
     });
     
     $('button.new-list').removeClass('hidden');
-    $('.new-list-form').addClass("hidden");
+    // $('.new-list-form').addClass("hidden");
+    $('.new-list-form').empty();
     this.$el.html(renderedContent);
     return this;
   }

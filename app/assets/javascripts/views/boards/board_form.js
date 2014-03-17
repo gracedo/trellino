@@ -1,4 +1,4 @@
-Trellino.Views.BoardsForm = Backbone.View.extend({
+Trellino.Views.BoardForm = Backbone.View.extend({
   template: JST["boards/form"],
   
   initialize: function(options) {

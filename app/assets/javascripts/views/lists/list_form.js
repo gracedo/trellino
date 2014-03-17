@@ -1,5 +1,5 @@
-Trellino.Views.ListNew = Backbone.View.extend({
-  template: JST["lists/new"],
+Trellino.Views.ListForm = Backbone.View.extend({
+  template: JST["lists/form"],
   
   initialize: function(options) {
     this.board = options.board;

@@ -8,6 +8,7 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
     
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.lists, "add", this.addList);
+    this.listenTo(this.members, "add", this.addMember)
 
     this.lists.each(
       this.addList.bind(this)
@@ -17,7 +18,7 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
       this.addMember.bind(this)
     )
     
-    // var listNewView = new Trellino.Views.ListNew({
+    // var listNewView = new Trellino.Views.ListForm({
     //   model: this.model,
     //   collection: this.lists
     // });
@@ -44,24 +45,25 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
   addListForm: function(event) {
     $(event.target).addClass("hidden");
     
-    var listNewView = new Trellino.Views.ListNew({
+    var listFormView = new Trellino.Views.ListForm({
       board: this.model,
       lists: this.lists
     });
     
     // this.addSubview(".new-list-form", listNewView);
-    $('.new-list-form').html(listNewView.render().$el)
+    $('.new-list-form').html(listFormView.render().$el);
   },
   
   addMemberForm: function(event) {
     $(event.target).addClass("hidden");
     
-    var memberNewView = new Trellino.Views.MemberNew({
+    var memberFormView = new Trellino.Views.MemberForm({
       board: this.model,
-      lists: this.lists
+      // lists: this.lists
+      members: this.members
     });
 
-    $('.new-member-form').html(memberNewView.render().$el)
+    $('.new-member-form').html(memberFormView.render().$el)
   },
   
   addList: function(list) {

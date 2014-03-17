@@ -11,7 +11,7 @@ Trellino.Views.MembersShow = Backbone.View.extend({
     });
     
     $('button.new-member').removeClass('hidden');
-    $('.new-member-form').addClass('hidden');
+    $('.new-member-form').empty();
     this.$el.html(renderedContent);
     return this;
   }
