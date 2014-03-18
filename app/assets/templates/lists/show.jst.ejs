@@ -5,16 +5,15 @@
     <button class="remove-list btn btn-default btn-xs">Remove</button>
   </center>
 
-    <% if(cards.length !== 0) { %>
-      <br>
-      <ol class="cards">
-      </ol>
-    <% } %>
+  <% if(cards.length !== 0) { %>
+    <br>
+    <ol class="cards">
+    </ol>
+  <% } %>
       
-      <br><br>
-  <center>
-    <a href="#" class ="add-card-form">Add a card</a>
-    <div class="new-card-form" id="<%= list.id %>">
-    </div>
-  </center>
+  <br><br>
+  
+  <a href="#" class ="add-card-form">Add a card...</a>
+  <div class="new-card-form" id="<%= list.id %>">
+  </div>
 </div>
