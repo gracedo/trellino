@@ -17,6 +17,11 @@ Trellino.Models.List = Backbone.Model.extend({
     }
 
     return this._cards;
-  }
+  },
   
+  validate: function(attributes) {
+    if(!attributes || !attributes.title || attributes.title === "") {
+      return "cannot have an empty title";
+    }
+  }
 });

@@ -14,3 +14,26 @@
  */
 
 @import "bootstrap";
+
+.list-container {
+  float: left;
+  border: 1px black solid;
+  margin: 10px;
+  width: 300px;
+  padding-bottom: 10px;
+  background-color: #236B8E;
+  color: #FFFFFF;
+}
+
+.list-header {
+  text-shadow: 2px 2px #000000;
+}
+
+.content {
+  width: 80%;
+}
+
+a.add-card {
+  float: bottom;
+  color: #000000;
+}

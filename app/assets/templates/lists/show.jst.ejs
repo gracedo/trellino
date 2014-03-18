@@ -1,14 +1,20 @@
-<li>
-  <%= list.escape("title") %> <button class="remove-list btn btn-default btn-xs">Remove</button>
-  
-  <ul>
+<div class="list-container">
+
+  <center>
+    <h3 class="list-header"><%= list.escape("title") %></h3>
+    <button class="remove-list btn btn-default btn-xs">Remove</button>
+  </center>
+
     <% if(cards.length !== 0) { %>
-      
-      <li>Cards</li>
-      
-      <ul class="cards">
-      </ul>
-      
+      <br>
+      <ol class="cards">
+      </ol>
     <% } %>
-  </ul>
-</li>
+      
+      <br><br>
+  <center>
+    <a href="#" class ="add-card-form">Add a card</a>
+    <div class="new-card-form">
+    </div>
+  </center>
+</div>
