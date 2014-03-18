@@ -6,8 +6,8 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
     this.board = Trellino.Collections.boards.get(this.boardID);
     this.cards = this.model.cards();
     
-    this.listenTo(this.model, "all", this.render);
-    // this.listenTo(this.model, "remove", this.removeList);
+    this.listenTo(this.model, "add remove", this.render);
+    this.listenTo(this.cards, "add", this.addCard);
     
     this.cards.each(
       this.addCard.bind(this)
@@ -58,6 +58,7 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
   },
   
   addCardForm: function(event) {
+    event.preventDefault();
     $(event.target).addClass("hidden");
     
     var cardFormView = new Trellino.Views.CardForm({
@@ -65,6 +66,7 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
       cards: this.cards
     });
     
-    $('.new-card-form').html(cardFormView.render().$el);
+    $('.new-card-form#'+this.model.id).html(cardFormView.render().$el);
+    // $('.new-card-form').find("data-listID='" + this.model.id + "'")
   }
 })

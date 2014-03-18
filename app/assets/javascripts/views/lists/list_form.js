@@ -20,7 +20,6 @@ Trellino.Views.ListForm = Backbone.View.extend({
   },
   
   create: function(event) {
-    var view = this;
     event.preventDefault();
     var $formData = $(event.currentTarget.form).serializeJSON().list;
     
@@ -36,14 +35,5 @@ Trellino.Views.ListForm = Backbone.View.extend({
         console.log("error")
       }
     })
-    
-    // newList.save({}, {
-    //   success: function () {
-    //     alert("success")
-    //     view.lists.add(newList);
-    //     // view.$('textarea[name=comment\\[content\\]]').val("");
-    //     // view.renderPreview();
-    //   }
-    // });
   }
 })
