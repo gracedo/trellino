@@ -6,7 +6,7 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
     this.board = Trellino.Collections.boards.get(this.boardID);
     this.cards = this.model.cards();
     
-    this.listenTo(this.model, "add remove", this.render);
+    this.listenTo(this.model, "add remove change sync", this.render);
     this.listenTo(this.cards, "add", this.addCard);
     this.listenTo(this.cards, "remove change sync", this.render);
     

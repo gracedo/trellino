@@ -27,7 +27,7 @@ Trellino.Views.ListForm = Backbone.View.extend({
 
     this.lists.create(newList, {
       success: function() {
-        // console.log(list)
+        Trellino.Collections.lists.add(newList);
         console.log("successfully added list");
       },
       
