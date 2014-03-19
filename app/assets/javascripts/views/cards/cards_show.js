@@ -7,7 +7,9 @@ Trellino.Views.CardsShow = Backbone.View.extend({
   },
   
   events: {
-    "click button.remove-card": "removeCard"
+    "click button.remove-card": "removeCard",
+    "mouseover .card": "addDeleteButton",
+    "mouseleave .card": "removeDeleteButton"
   },
   
   render: function() {
@@ -16,8 +18,10 @@ Trellino.Views.CardsShow = Backbone.View.extend({
       list: this.list
     })
     
-    $('a.add-card-form').removeClass('hidden');
-    $('.new-card-form').empty();
+    $('a.add-card-link').removeClass('hidden');
+    // $('.add-card-link#'+this.list.id).removeClass('hidden');
+    // $('.new-card-form').empty();
+    $('.new-card-form').addClass('hidden');
     this.$el.html(renderedContent);
     return this;
   },
@@ -36,5 +40,13 @@ Trellino.Views.CardsShow = Backbone.View.extend({
         currListShowView.removeSubview(".cards-list", that)
       }
     })
+  },
+  
+  addDeleteButton: function(event) {
+    $(event.target).find('button.remove-card').removeClass('hidden');
+  },
+  
+  removeDeleteButton: function(event) {
+    $(event.target).find('button.remove-card').addClass('hidden');
   }
 });

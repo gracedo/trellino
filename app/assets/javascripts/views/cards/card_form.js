@@ -7,7 +7,9 @@ Trellino.Views.CardForm = Backbone.View.extend({
   },
   
   events: {
-    "click button.new-card": "create"
+    "click button.new-card": "create",
+    "click button.cancel-new-card": "removeForm",
+    "blur .card-form": "removeForm"
   },
 
   render: function() {
@@ -33,5 +35,12 @@ Trellino.Views.CardForm = Backbone.View.extend({
         console.log("erorr creating card")
       }
     })
+  },
+  
+  removeForm: function(event) {
+    event.preventDefault();
+    $(event.target.form).empty();
+    $('a.add-card-link').removeClass('hidden');
+    // $('.add-card-link#'+this.list.id).removeClass('hidden');
   }
 });

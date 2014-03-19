@@ -6,9 +6,10 @@
     <input type="hidden" name="card[list_id]" value="<%= listID %>" id="list_id">
     <input type="hidden" name="card[rank]" value="<%= rank %>" id="card_rank">
   
-    <input type="text" name="card[title]" class="form-control" id="title" placeholder="Untitled Card">
-    <input type="text" name="card[description]" class="form-control" id="title" placeholder="Description">
+    <input type="text" name="card[title]" class="card-form form-control" id="title" placeholder="Untitled Card" autofocus="autofocus">
+    <input type="text" name="card[description]" class="card-form form-control" id="description" placeholder="Description">
   </div>
 
   <button type="submit" class="new-card btn btn-default">Create</button>
+  <button type="submit" class="cancel-new-card btn btn-default">Cancel</button>
 </form>

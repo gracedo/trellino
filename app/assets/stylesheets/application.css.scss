@@ -21,6 +21,7 @@
   margin: 10px;
   width: 300px;
   padding: 10px;
+  padding-bottom: 0px;
   background-color: #D1D1D1;
   color: #000000;
   display: inline-block;
@@ -28,9 +29,9 @@
 
 .card-block {
   border: 0px black solid;
-  padding: 6px;
+  padding: 8px;
   margin: 2px;
-  background-color: #ffffff;
+  background-color: #F0F0F0;
   color: #000000;
 }
 
@@ -44,9 +45,10 @@
   width: 80%;
 }
 
-a.add-card {
+div.add-card-link {
   float: bottom;
-  color: #000000;
+//  color: #000000;
+//  border: 1px black solid;
 }
 
 .add-list-button {
