@@ -1,19 +1,20 @@
-<div class="list-container">
+<div class="list-container panel panel-default dragged">
 
-  <center>
-    <h3 class="list-header"><%= list.escape("title") %></h3>
-    <button class="remove-list btn btn-default btn-xs">Remove</button>
-  </center>
+    <h3 class="list-header"><%= list.escape("title") %> <%= list.escape("rank") %> <button class="remove-list btn btn-default btn-xs">Remove</button></h3>
+  
+  <div class="panel-body">
 
   <% if(cards.length !== 0) { %>
-    <br>
-    <ol class="cards">
-    </ol>
+    <div class="cards-list">
+    </div>
   <% } %>
       
-  <br><br>
-  
-  <a href="#" class ="add-card-form">Add a card...</a>
-  <div class="new-card-form" id="<%= list.id %>">
+  <br>
+ 
+ <div class="add-card-container"> 
+    <a href="#" class="add-card-form">Add a card...</a>
+    <div class="new-card-form" id="<%= list.id %>">
+  </div>
+   
   </div>
 </div>

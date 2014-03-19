@@ -8,6 +8,7 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
     
     this.listenTo(this.model, "add remove", this.render);
     this.listenTo(this.cards, "add", this.addCard);
+    this.listenTo(this.cards, "remove change sync", this.render);
     
     this.cards.each(
       this.addCard.bind(this)
@@ -28,6 +29,13 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
     $('button.new-list').removeClass('hidden');
     $('.new-list-form').empty();
     this.$el.html(renderedContent);
+    
+    $(this.$el.find(".cards-list")).sortable({
+      cursor: "move",
+      opacity: 0.3,
+      connectWith: ".cards-list"
+    })
+    
     this.renderSubviews();
     return this;
   },
@@ -54,7 +62,7 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
       list: this.model
     });
     
-    this.addSubview(".cards", cardsShowView);
+    this.addSubview(".cards-list", cardsShowView);
     cardsShowView.render();
   },
   

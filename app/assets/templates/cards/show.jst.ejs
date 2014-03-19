@@ -1,1 +1,5 @@
-<li><%= card.get("title") %> <button class="remove-card btn btn-default btn-xs">Delete</button></li>
+<div class="card card-block dragged well well-sm" id="<%= card.id %>" data-rank="<%= card.escape("rank") %> " data-list-id="<%= list.id %>">
+  
+  <%= card.escape("title") %> <%= card.escape("rank") %>  <button class="remove-card btn btn-default btn-xs">Delete</button>
+
+</div>

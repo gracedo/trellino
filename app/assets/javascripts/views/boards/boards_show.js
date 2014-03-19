@@ -32,6 +32,13 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
     });
     
     this.$el.html(renderedContent);
+    
+    $(this.$el.find(".lists")).sortable({
+      cursor: "move",
+      opacity: 0.3,
+      connectWith: ".lists"
+    })
+    
     this.renderSubviews();
     return this;
   },

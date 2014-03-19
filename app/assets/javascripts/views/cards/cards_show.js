@@ -9,12 +9,13 @@ Trellino.Views.CardsShow = Backbone.View.extend({
   events: {
     "click button.remove-card": "removeCard"
   },
-
+  
   render: function() {
     var renderedContent = this.template({
-      card: this.model
+      card: this.model,
+      list: this.list
     })
-
+    
     $('a.add-card-form').removeClass('hidden');
     $('.new-card-form').empty();
     this.$el.html(renderedContent);
@@ -32,7 +33,7 @@ Trellino.Views.CardsShow = Backbone.View.extend({
           model: that.list
         })
         
-        currListShowView.removeSubview(".cards", that)
+        currListShowView.removeSubview(".cards-list", that)
       }
     })
   }
