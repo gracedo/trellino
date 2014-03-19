@@ -31,6 +31,10 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
     $('.new-list-form').empty();
     this.$el.html(renderedContent);
     
+    if(this.cards) {
+      this.cards.sort();
+    }
+    
     $(this.$el.find(".cards-list")).sortable({
       cursor: "move",
       opacity: 0.3,
