@@ -9,7 +9,7 @@ Trellino.Views.CardForm = Backbone.View.extend({
   events: {
     "click button.new-card": "create",
     "click button.cancel-new-card": "removeForm",
-    "blur .card-form": "removeForm" //get blur to ignore button clicks?
+    // "click button:not(.new-card) div:not(.card-form)": "removeForm" //get blur to ignore button clicks?
   },
 
   render: function() {
@@ -24,24 +24,25 @@ Trellino.Views.CardForm = Backbone.View.extend({
   
   create: function(event) {
     event.preventDefault();
+    event.stopPropagation();
     var formData = $(event.target.form).serializeJSON().card;
     var newCard = new Trellino.Models.Card(formData);
 
     this.cards.create(newCard, {
       sucess: function() {
-        console.log("card successfully created")
+        console.log("card successfully created");
+        $('.new-card-form#'+this.list.id).empty();
       },
       error: function() {
-        console.log("erorr creating card")
+        console.log("erorr creating card");
       }
     })
   },
   
   removeForm: function(event) {
     event.preventDefault();
-    $(event.target.form).empty();
-    // debugger
-    $('.add-card-link-container').removeClass('hidden');
+    $('.new-card-form#'+this.list.id).empty();
+    $(".add-card-link-container[data-list-id='"+this.list.id+"']").removeClass('hidden');
     //how to select specific container with data-* of list id??
     // $('.add-card-link#'+this.list.id).removeClass('hidden');
   }
