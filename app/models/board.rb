@@ -12,7 +12,7 @@ class Board < ActiveRecord::Base
   end
 
   def as_json(options = {})
-    super(options.merge(include: [:members, {lists: {include: [:cards]}}]))
+    super(options.merge(include: [:members, :cards, {lists: {include: [:cards]}}]))
     # super(options.merge(include: :members))
   end
   

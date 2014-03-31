@@ -13,10 +13,10 @@ Trellino.Models.Board = Backbone.Model.extend({
       delete jsonResponse.members;
     }
     
-    // if (jsonResponse.cards){
-//       this.cards().set(jsonResponse.cards);
-//       delete jsonResponse.cards;
-//     }
+    if (jsonResponse.cards){
+      this.cards().set(jsonResponse.cards);
+      delete jsonResponse.cards;
+    }
     
     return jsonResponse;
   },
@@ -39,15 +39,15 @@ Trellino.Models.Board = Backbone.Model.extend({
     }
     
     return this._members;
-  }// ,
-//   
-//   cards: function() {
-//     if(!this._cards){
-//       this._cards = new Trellino.Collections.Cards([], {
-//         board: this
-//       });
-//     }
-//     
-//     return this._cards;
-//   }
+  },
+  
+  cards: function() {
+    if(!this._cards){
+      this._cards = new Trellino.Collections.Cards([], {
+        board: this
+      });
+    }
+    
+    return this._cards;
+  }
 });

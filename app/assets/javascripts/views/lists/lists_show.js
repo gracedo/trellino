@@ -5,10 +5,11 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
     this.boardID = this.model.get("board_id");
     this.board = Trellino.Collections.boards.get(this.boardID);
     this.cards = this.model.cards();
+    this.allCards = this.board.cards();
     
     this.listenTo(this.model, "add remove change:rank sync", this.render);
     this.listenTo(this.cards, "add", this.addCard);
-    this.listenTo(this.cards, "remove change:rank sync", this.render);
+    this.listenTo(this.cards, "remove", this.render);
     
     this.cards.each(
       this.addCard.bind(this)
@@ -42,27 +43,7 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
       cursor: "move",
       opacity: 0.3,
       connectWith: ".cards-list"
-    })
-    
-    
-    // $(this.$el).find(".cards-list").sortable({ 
-//       cursor:"move",
-//       opacity: 0.4,
-//       stop: function(event, ui) {
-//         console.log(ui.card) // thing actually dragging/dropping
-//         var $card = $(ui.card);
-//         var nextLi = $card.next().data("rank");
-//         var prevLi = $card.prev().data("rank");
-//         var updateOrder = (nextLiOrder + prevLiOrder) /2;
-//         var cardModel = that.cards.get(cardId);
-//         cardModel.save({ rank: updateOrder }, {
-//           patch: true,
-//           success: function(model) {
-//             $card.data("rank", updateOrder);
-//         }
-//       })
-//       } 
-//     })
+    });
     
     this.renderSubviews();
     return this;
@@ -70,30 +51,28 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
   
   sortCard: function(event, ui) {
     var that = this;
-    //find previous element's order, or 0
+
     var $card = $(ui.item.children());
     var nextOrder = ui.item.next().children().data("rank");
     var prevOrder = ui.item.prev().children().data("rank");
-    debugger
-    //find next element's order, or prev_element + 2
-    // turn your old order into the average of the two.
-    var updatedOrder = this._calculatePosition(prevOrder, nextOrder);
+    
+    var updatedOrder = this._calculatePosition(parseFloat(prevOrder), parseFloat(nextOrder));
     var cardId = $card.data("id");
     var oldListId = $card.data("list-id");
     var updatedCardListId = $card.parent().parent().parent().parent().data("id");
-    var cardModel = this.cards.get(cardId);
+    var cardModel = this.allCards.get(cardId);
     
     cardModel.save({
       rank: updatedOrder,
       list_id: updatedCardListId },
       { patch: true,
         success: function(model){
-        $card.data("rank", updatedOrder);
-        that.cards.add(model);
-        // remove it from the old list's collection
-        Trellino.Collections.lists.get(oldListId).cards().remove(model, { silent: true });
-        $card.data("list-id", updatedCardListId);
-      }
+          $card.data("rank", updatedOrder);
+          that.cards.add(model);
+          // remove it from the old list's collection
+          Trellino.Collections.lists.get(oldListId).cards().remove(model, { silent: true });
+          $card.data("list-id", updatedCardListId);
+        }
       });
     },
 
@@ -127,13 +106,15 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
   },
   
   addCard: function(card) {
-    var cardsShowView = new Trellino.Views.CardsShow({
-      model: card,
-      list: this.model
-    });
+    if(!this.allCards.contains(card)) {
+      var cardsShowView = new Trellino.Views.CardsShow({
+        model: card,
+        list: this.model
+      });
     
-    this.addSubview(".cards-list", cardsShowView);
-    cardsShowView.render();
+      this.addSubview(".cards-list", cardsShowView);
+      cardsShowView.render();
+    }
   },
   
   addCardForm: function(event) {
