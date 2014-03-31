@@ -13,7 +13,25 @@
  *= require_tree .
  */
 
+$navbar-height: 40px;
+$navbar-default-bg: #D1D1D1;
+$navbar-default-link-hover-bg: #ddd;
+
 @import "bootstrap";
+
+.container {
+  margin: 0 5px;
+//  border: 1px green solid;
+  min-width: 100%;
+}
+
+//.board {
+//  overflow: hidden;
+//}
+
+.board-member-panel {
+  width: 20%;
+}
 
 .list-container {
   float: left;
@@ -26,6 +44,11 @@
   color: #000000;
 //  display: inline-block;
   border-radius: 8px;
+}
+
+.lists {
+  overflow: hidden;
+  clear: both;
 }
 
 .card-block {
@@ -54,4 +77,8 @@ div.add-card-link {
 
 .add-list-button {
   clear: both;
+}
+
+.remove-card, .remove-list {
+  float: right;
 }

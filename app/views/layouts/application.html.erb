@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <nav class="navbar nav-default navbar-inverse" role="navigation">
+  <nav class="navbar nav-default navbar-default" role="navigation">
     <div class="navbar-inner">
       <ul class="nav nav-pills">
         <li><a href="#/">Boards</a></li>
@@ -47,17 +47,18 @@
       </ul>
     </div>
   </nav>
+  
   <%= yield %>
 
-<div class="overlay hidden">
-</div>
+  <div class="overlay hidden">
+  </div>
 
 </body>
 
 <footer>
 <center>
   <hr>
-  THIS IS A FOOTER.
+  Trellino | Grace Do, 2014
 </center>  
 </footer>
 </html>

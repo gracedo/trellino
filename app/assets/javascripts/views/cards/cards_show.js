@@ -43,10 +43,10 @@ Trellino.Views.CardsShow = Backbone.View.extend({
   },
   
   addDeleteButton: function(event) {
-    $(event.target).find('button.remove-card').removeClass('hidden');
+    $(event.target).find('.remove-card').removeClass('hidden');
   },
   
   removeDeleteButton: function(event) {
-    $(event.target).find('button.remove-card').addClass('hidden');
+    $(event.target).find('.remove-card').addClass('hidden');
   }
 });
