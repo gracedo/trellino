@@ -1,6 +1,6 @@
-<div class="list-container panel panel-default dragged">
+<div class="list-container dragged" data-id="<%= list.id %>">
 
-    <h3 class="list-header"><%= list.escape("title") %> <%= list.escape("rank") %> <button class="remove-list btn btn-default btn-xs">Remove</button></h3>
+  <h3 class="list-header"><%= list.escape("title") %> <%= list.id %> <%= list.escape("rank") %> <button class="remove-list btn btn-default btn-xs">Remove</button></h3>
   
   <div class="panel-body">
 
@@ -17,5 +17,6 @@
     <div class="new-card-form" id="<%= list.id %>">
     </div>
    
+    </div>
   </div>
 </div>

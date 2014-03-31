@@ -3,7 +3,7 @@ Trellino.Collections.Lists = Backbone.Collection.extend({
   
   url: function() {
     // return this.board.url() + '/lists';
-    return 'boards/' +  this.boardID + "/lists"
+    return 'boards/' +  this.boardID + "/lists";
   },
   
   // initialize: function(models, options) {
@@ -14,5 +14,3 @@ Trellino.Collections.Lists = Backbone.Collection.extend({
     return list.get("rank");
   }
 });
-
-Trellino.Collections.lists = new Trellino.Collections.Lists();

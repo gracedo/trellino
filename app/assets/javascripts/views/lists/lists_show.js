@@ -6,9 +6,9 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
     this.board = Trellino.Collections.boards.get(this.boardID);
     this.cards = this.model.cards();
     
-    this.listenTo(this.model, "add remove change sync", this.render);
+    this.listenTo(this.model, "add remove change:rank sync", this.render);
     this.listenTo(this.cards, "add", this.addCard);
-    this.listenTo(this.cards, "remove change sync", this.render);
+    this.listenTo(this.cards, "remove change:rank sync", this.render);
     
     this.cards.each(
       this.addCard.bind(this)
@@ -17,11 +17,18 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
   
   events: {
     "click button.remove-list": "removeList",
-    "click a.add-card-link": "addCardForm"// ,
-//     "blur .add-card-container": "removeCardForm"
+    "click a.add-card-link": "addCardForm",
+//     "blur .add-card-container": "removeCardForm",
+    "sortstop": "sortCard"
   },
   
   render: function() {
+    var that = this;
+    
+    if(this.cards) {
+      this.cards.sort();
+    }
+    
     var renderedContent = this.template({
       list: this.model,
       cards: this.cards
@@ -31,30 +38,88 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
     $('.new-list-form').empty();
     this.$el.html(renderedContent);
     
-    if(this.cards) {
-      this.cards.sort();
-    }
-    
     $(this.$el.find(".cards-list")).sortable({
       cursor: "move",
       opacity: 0.3,
       connectWith: ".cards-list"
     })
     
+    
+    // $(this.$el).find(".cards-list").sortable({ 
+//       cursor:"move",
+//       opacity: 0.4,
+//       stop: function(event, ui) {
+//         console.log(ui.card) // thing actually dragging/dropping
+//         var $card = $(ui.card);
+//         var nextLi = $card.next().data("rank");
+//         var prevLi = $card.prev().data("rank");
+//         var updateOrder = (nextLiOrder + prevLiOrder) /2;
+//         var cardModel = that.cards.get(cardId);
+//         cardModel.save({ rank: updateOrder }, {
+//           patch: true,
+//           success: function(model) {
+//             $card.data("rank", updateOrder);
+//         }
+//       })
+//       } 
+//     })
+    
     this.renderSubviews();
     return this;
   },
   
+  sortCard: function(event, ui) {
+    var that = this;
+    //find previous element's order, or 0
+    var $card = $(ui.item.children());
+    var nextOrder = ui.item.next().children().data("rank");
+    var prevOrder = ui.item.prev().children().data("rank");
+    debugger
+    //find next element's order, or prev_element + 2
+    // turn your old order into the average of the two.
+    var updatedOrder = this._calculatePosition(prevOrder, nextOrder);
+    var cardId = $card.data("id");
+    var oldListId = $card.data("list-id");
+    var updatedCardListId = $card.parent().parent().parent().parent().data("id");
+    var cardModel = this.cards.get(cardId);
+    
+    cardModel.save({
+      rank: updatedOrder,
+      list_id: updatedCardListId },
+      { patch: true,
+        success: function(model){
+        $card.data("rank", updatedOrder);
+        that.cards.add(model);
+        // remove it from the old list's collection
+        Trellino.Collections.lists.get(oldListId).cards().remove(model, { silent: true });
+        $card.data("list-id", updatedCardListId);
+      }
+      });
+    },
+
+  _calculatePosition: function(prevPos, nextPos){
+    if(!nextPos){
+      if(!prevPos){
+        return 1;
+      } else {
+        return (prevPos + 1);
+      }
+    } else if(!prevPos){
+      return (nextPos / 2);
+    }
+    return (nextPos + prevPos) / 2;
+  },
+
   removeList: function(event) {
     event.preventDefault();
     var that = this;
-    
+
     this.model.destroy({
       success: function (list) {
         var currBoardShowView = new Trellino.Views.BoardsShow({
           model: that.board
         })
-        
+
         currBoardShowView.removeSubview(".lists", that); // remove list showview from board subviews
         console.log("deleted list " + list.id + ", titled " + list.get("title"));
       }

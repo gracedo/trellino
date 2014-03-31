@@ -29,6 +29,7 @@ Trellino.Routers.Boards = Backbone.Router.extend({
     })
 
     Trellino.Collections.boards.fetch();
+    Trellino.Collections.lists.fetch();
     this._swapView(boardsShowView);
   },
   

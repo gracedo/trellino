@@ -7,6 +7,7 @@ window.Trellino = {
     Trellino.Collections.boards.fetch({
       success: function() {
         new Trellino.Routers.Boards();
+        Trellino.Collections.lists = new Trellino.Collections.Lists();
         Backbone.history.start();
       }
     })
