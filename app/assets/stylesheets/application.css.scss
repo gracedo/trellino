@@ -21,20 +21,28 @@ $navbar-default-link-hover-bg: #ddd;
 
 .container {
   margin: 0 5px;
-//  border: 1px green solid;
+  border: 1px green solid;
   min-width: 100%;
+  overflow: visible;
 }
 
-//.board {
+.board {
 //  overflow: hidden;
-//}
+  border: 1px red solid;
+}
 
 .board-member-panel {
   width: 20%;
 }
 
+.lists {
+//  overflow: hidden;
+//  clear: both;
+  border: 1px blue solid;
+}
+
 .list-container {
-  float: left;
+//  float: left;
   border: 1px black solid;
   margin: 10px;
   width: 300px;
@@ -42,13 +50,9 @@ $navbar-default-link-hover-bg: #ddd;
   padding-bottom: 0px;
   background-color: #D1D1D1;
   color: #000000;
-//  display: inline-block;
+  display: inline-block;
   border-radius: 8px;
-}
-
-.lists {
-  overflow: hidden;
-  clear: both;
+//  position: fixed;
 }
 
 .card-block {
@@ -81,4 +85,8 @@ div.add-card-link {
 
 .remove-card, .remove-list {
   float: right;
+}
+
+.btn-danger {
+  opacity: 0.4;
 }
