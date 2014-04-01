@@ -43,12 +43,11 @@ $navbar-default-link-hover-bg: #ddd;
 
 .list-container {
 //  float: left;
-  border: 1px black solid;
+  border: 0px black solid;
   margin: 10px;
-  width: 300px;
-  padding: 10px;
-  padding-bottom: 0px;
-  background-color: #D1D1D1;
+  width: 20%;
+  padding: 0px;
+  background-color: #DBDBDB;
   color: #000000;
   display: inline-block;
   border-radius: 8px;
@@ -57,16 +56,28 @@ $navbar-default-link-hover-bg: #ddd;
 
 .card-block {
   border: 0px black solid;
-  padding: 8px;
-  margin: 2px;
-  background-color: #F0F0F0;
+  padding: 5px;
+  margin: 3px;
+  background-color: #FAFAFA;
   color: #000000;
+}
+
+.card-block:hover {
+  background-color: #F0F0F0;
+  cursor: move;
+}
+
+.ui-state-highlight {
+  border-radius: 8px;
+  background-color: #C4C4C4;
+  border: 0px #F0F0F0 solid;
 }
 
 .list-header {
 //  text-shadow: 2px 2px #FFFFFF;
-  background-color: #D1D1D1;
-  margin: 10px;
+  background-color: #DBDBDB;
+  margin: 20px;
+  margin-bottom: 0;
 }
 
 .content {
@@ -89,4 +100,8 @@ div.add-card-link {
 
 .btn-danger {
   opacity: 0.4;
+}
+
+.btn-danger:hover {
+  opacity: 1;
 }
