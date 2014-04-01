@@ -43,7 +43,6 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
       cursor: "move",
       opacity: 0.3,
       connectWith: "div.cards-list",
-      dropOnEmpty: true,
       placeholder: "ui-state-highlight",
       forcePlaceholderSize: true
     });

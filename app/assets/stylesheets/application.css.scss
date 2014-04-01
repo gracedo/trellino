@@ -67,6 +67,10 @@ $navbar-default-link-hover-bg: #ddd;
   cursor: move;
 }
 
+.cards-list {
+  min-height: 8px;
+}
+
 .ui-state-highlight {
   border-radius: 8px;
   background-color: #C4C4C4;
