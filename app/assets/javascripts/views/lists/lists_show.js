@@ -41,10 +41,14 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
     
     $(this.$el.find("div.cards-list")).sortable({
       cursor: "move",
-      opacity: 0.3,
+      opacity: 1,
       connectWith: "div.cards-list",
+      dropOnEmpty: true,
       placeholder: "ui-state-highlight",
-      forcePlaceholderSize: true
+      forcePlaceholderSize: true,
+      start: function(event, ui) {
+        $(ui.item).toggleClass('dragged');
+      }
     });
     
     this.renderSubviews();
@@ -53,7 +57,8 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
   
   sortCard: function(event, ui) {
     var that = this;
-
+    
+    $(ui.item).toggleClass('dragged');
     var $card = $(ui.item.children());
     var nextOrder = ui.item.next().children().data("rank");
     var prevOrder = ui.item.prev().children().data("rank");

@@ -67,6 +67,12 @@ $navbar-default-link-hover-bg: #ddd;
   cursor: move;
 }
 
+.dragged {
+  transform:rotate(-6deg);
+  -ms-transform:rotate(-6deg); /* IE 9 */
+  -webkit-transform:rotate(-6deg); /* Opera, Chrome, and Safari */
+}
+
 .cards-list {
   min-height: 8px;
 }
