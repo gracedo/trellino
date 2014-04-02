@@ -127,19 +127,13 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
   addCardForm: function(event) {
     event.preventDefault();
     $(event.target.parentElement).addClass("hidden");
+    
     var cardFormView = new Trellino.Views.CardForm({
       list: this.model,
       cards: this.cards
     });
+    
     $('.new-card-form#'+this.model.id).removeClass('hidden');
     $('.new-card-form#'+this.model.id).html(cardFormView.render().$el);
-    // $('.new-card-form').find("data-listID='" + this.model.id + "'")
-  }// ,
-//   
-//   removeCardForm: function(event) {
-//     event.preventDefault();
-//     debugger
-//     $('a.add-card-link').removeClass('hidden');
-//     $(event.target).find('.new-card-form#'+this.model.id).empty();
-//   }
+  }
 })

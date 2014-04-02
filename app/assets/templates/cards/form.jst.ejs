@@ -2,7 +2,7 @@
 
 
 <form role="form">
-  <div class="form-group card-form">
+  <div class="card-form">
     <input type="hidden" name="card[list_id]" value="<%= listID %>" id="list_id">
     <input type="hidden" name="card[rank]" value="<%= rank %>" id="card_rank">
   
@@ -10,6 +10,6 @@
     <!-- <input type="text" name="card[description]" class="form-control" id="description" placeholder="Description"> -->
   </div>
 
-  <button type="submit" class="new-card btn btn-default">Create</button>
-  <button type="submit" class="cancel-new-card btn btn-default">Cancel</button>
+  <button type="submit" class="new-card btn btn-success">Create</button>
+  <button class="btn btn-lg btn-cancel cancel-new-card"><span class="glyphicon glyphicon-remove"></span></button>
 </form>

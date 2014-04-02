@@ -20,7 +20,7 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
   },
   
   events: {
-    "click button.new-list": "addListForm",
+    "click a.add-list-link": "addListForm",
     "click button.new-member": "addMemberForm",
     "click button.remove-board": "removeBoard"
   },
@@ -44,6 +44,7 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
   },
   
   addListForm: function(event) {
+    event.preventDefault();
     $(event.target).addClass("hidden");
     
     var listFormView = new Trellino.Views.ListForm({

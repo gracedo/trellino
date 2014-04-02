@@ -111,6 +111,37 @@ a.add-card-link {
 //  border-radius: 3px;
 }
 
+.new-list-container {
+  float: left;
+  margin: 5px;
+  width: 17%;
+  padding: 0px 3px 3px 3px;
+  background-color: #2A586B;
+  color: #000000;
+  display: block;
+  border-radius: 3px;
+  position: relative;
+}
+
+.add-list-link-container {
+  display: block;
+  margin: 0px -3px -3px -3px;
+  padding: 7px 10px;
+}
+
+.add-list-link-container:hover {
+  background-color: #1F3F4D;
+//  border-bottom-right-radius: 3px;
+//  border-bottom-left-radius: 3px;
+  border-radius: 3px;
+  margin: 0px -3px -3px -3px;
+  padding: 7px 10px;
+}
+
+a.add-list-link {
+  color: white;
+}
+
 .cards-list {
   min-height: 20px;
   clear: both;
@@ -169,11 +200,6 @@ a.add-card-link {
 .content {
   width: 80%;
 }
-
-.add-list-button {
-//  clear: both;
-}
-
 .remove-card, .remove-list {
   float: right;
 }
@@ -193,11 +219,15 @@ a.add-card-link {
   opacity: 1;
 }
 
-.btn-create-list {
-  color: #000000;
+.btn-cancel {
+  color: #8A8A8A;
+  display: inline-block;
   background-color: transparent;
+  margin-top: 4px;
+//  line-height: 30px;
 }
 
-button.new-list, .btn-create-list {
+button.new-list, button.new-card, .btn-create-list {
   margin-top: 4px;
+  margin-bottom: -3px;
 }
