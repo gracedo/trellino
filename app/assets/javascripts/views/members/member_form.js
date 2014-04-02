@@ -8,7 +8,8 @@ Trellino.Views.MemberForm = Backbone.View.extend({
   },
   
   events: {
-    "click button.new-member": "create"
+    "click button.create-new-member": "create",
+    "click button.cancel-new-member": "removeMemberForm"
   },
   
   render: function() {
@@ -35,5 +36,11 @@ Trellino.Views.MemberForm = Backbone.View.extend({
         console.log("error - member not found");
       }
     })
+  },
+  
+  removeMemberForm: function(event) {
+    event.preventDefault();
+    $('.new-member-form').empty();
+    $('.new-member').removeClass("hidden");
   }
 })

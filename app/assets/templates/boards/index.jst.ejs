@@ -5,7 +5,7 @@
     <div class="boards-container">
       <% boards.each(function(board) { %>
         <div class="board">
-          <strong><h3><a href="#/boards/<%= board.escape("id") %>"><%= board.escape('title') %></a></h3></strong>
+          <strong><h3><span class="glyphicon glyphicon-tasks"></span> <a href="#/boards/<%= board.escape("id") %>"><%= board.escape('title') %></a></h3></strong>
         </div>
       <% }) %>
     </div>

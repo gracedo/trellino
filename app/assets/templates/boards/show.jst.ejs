@@ -1,16 +1,17 @@
-<center>
-  <h2><%= board.escape("title") %>
+<!-- <center> -->
+<div class="row">
+  <div class="board-title">
+    <h2><%= board.escape("title") %>
     <button class="remove-board btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span> Delete Board</button></h2>
+  </div>
   
-  <div class="panel-group board-member-panel" id="accordion">
+  <div class="panel-group clearfix board-member-panel" id="accordion">
     <div class="panel panel-default">
-      <div class="panel-heading">
         <h5 class="panel-title">
           <a data-toggle="collapse" data-parent="#accordion" href="#members">
-            Board Members
+            Board Members <b class="caret"></b>
           </a>
         </h5>
-      </div>
       <div id="members" class="panel-collapse collapse">
         <div class="panel-body">
           <ul class="board-members" align="left">
@@ -23,8 +24,9 @@
       </div>
     </div>
   </div>
+</div>
   
-</center>
+<!-- </center> -->
   
   <!-- <div>
     <h5>Board Members</h5>
