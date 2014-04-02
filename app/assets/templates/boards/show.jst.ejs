@@ -1,17 +1,16 @@
-<!-- <center> -->
 <div class="row">
   <div class="board-title">
     <h2><%= board.escape("title") %>
     <button class="remove-board btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span> Delete Board</button></h2>
   </div>
   
-  <div class="panel-group clearfix board-member-panel" id="accordion">
+  <!-- <div class="panel-group clearfix board-member-panel" id="accordion">
     <div class="panel panel-default">
+      <a data-toggle="collapse" data-parent="#accordion" href="#members">
         <h5 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#members">
             Board Members <b class="caret"></b>
-          </a>
         </h5>
+      </a>
       <div id="members" class="panel-collapse collapse">
         <div class="panel-body">
           <ul class="board-members" align="left">
@@ -23,10 +22,34 @@
         </div>
       </div>
     </div>
-  </div>
-</div>
+  </div> -->
+    
+  <div class="members">
+    <button class="btn btn-members" data-toggle="modal" data-target=".members-modal">Board Members</button>
   
-<!-- </center> -->
+    <div class="modal fade members-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Board Members</h4>
+          </div>
+    
+          <ul class="board-members" align="left">
+          </ul>
+
+          <button class="new-member btn btn-default btn-sm">Add Member</button>
+          <div class="new-member-form">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+</div>
+
+
+
   
   <!-- <div>
     <h5>Board Members</h5>

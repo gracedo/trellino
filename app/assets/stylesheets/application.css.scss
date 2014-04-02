@@ -28,6 +28,13 @@ body {
   color: #ffffff;
 }
 
+footer {
+  margin: 30px auto;
+  margin-bottom: 0;
+  padding-top: 10px;
+  border-top: 1px #ffffff solid;
+}
+
 div.nav {
   padding: 1px;
 }
@@ -53,7 +60,7 @@ a {
 
 a:hover {
   text-decoration: underline;
-//  color: #ffffff;
+  color: #ffffff;
 }
 
 .new-board-dropdown {
@@ -86,31 +93,64 @@ a:hover {
 
 div.board-title {
   float: left;
-  margin-right: 30px;
+  margin: 0 30px;
   display: inline-block;
 }
 
-.panel-title {
-  background-color: transparent;
-  padding: 8px;
+.members-modal {
+  color: #000000;
 }
 
-.board-member-panel {
-  width: 510px;
-  display: block;
-  padding: 2px;
-}
-
-.panel-group .panel {
-  background-color: #2A586B;
+.members {
   margin-top: 20px;
   margin-bottom: 10px;
   border: 0px;
 }
 
-.panel-body {
-  padding-top: 10px;
+.btn-members {
+  background-color: #2A586B;
 }
+
+.btn-members:hover {
+  text-decoration: underline;
+  color: inherit;
+}
+
+.modal-content {
+  padding: 15px;
+}
+
+.modal-header {
+  padding: 0 10px;
+  margin-bottom: 10px;
+}
+
+//.panel-title {
+//  background-color: transparent;
+//  padding: 8px;
+//}
+//
+//.panel-title:hover {
+//  background-color: #2F5D70;
+//  color: #ffffff;
+//}
+//
+//.board-member-panel {
+//  width: 526px;
+//  display: block;
+//  padding: 2px;
+//}
+//
+//.panel-group .panel {
+//  background-color: #2A586B;
+//  margin-top: 20px;
+//  margin-bottom: 10px;
+//  border: 0px;
+//}
+//
+//.panel-body {
+//  padding: 10px;
+//}
 
 .list-container {
   float: left;
@@ -264,11 +304,15 @@ button.new-list, button.new-card, .btn-create-list {
   margin-left: 5px;
 }
 
-button.cancel-new-member {
+button.cancel-member {
   margin-right: 0px;
 }
 
 .new-item-input {
   margin-top: 8px;
   width: 97%;
+}
+
+.member-email-input {
+  width: 67%;
 }
