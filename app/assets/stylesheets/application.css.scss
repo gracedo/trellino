@@ -14,21 +14,67 @@
  */
 
 $navbar-height: 40px;
-$navbar-default-bg: #D1D1D1;
-$navbar-default-link-hover-bg: #ddd;
+$navbar-default-bg: #2A586B;
+//$navbar-default-link-bg: #3A82A1;
+$navbar-default-link-hover-color: #FFFFFF;
+$navbar-default-link-hover-bg: transparent;
+$navbar-default-link-color: #FFFFFF;
 
 @import "bootstrap";
 
+body {
+  padding-top: 40px;
+  background-color: #336E87;
+  color: #ffffff;
+}
+
+div.nav {
+  padding: 1px;
+}
+
+.nav-link {
+  margin-top: 0px;
+  margin-bottom: -6px;
+  padding: 0;
+//  background-color: #3D8CAD;
+  color: #ffffff;
+  border-radius: 3px;
+}
+
+.nav-link:hover {
+  opacity: 0.6;
+//  border: 1px #ffffff solid;
+//  background-color: #3E8CAD;
+}
+
+a {
+  color: #ffffff;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #ffffff;
+}
+
 .container {
   margin: 0 5px;
-  border: 1px green solid;
+//  border: 1px green solid;
   min-width: 100%;
   overflow: visible;
 }
 
+.panel-title {
+  padding: 1px;
+}
+
 .board {
-//  overflow: hidden;
-  border: 1px red solid;
+  margin: 10px;
+  width: 25%;
+  padding: 0px 5px 20px 20px;
+  background-color: #91B7C7;
+  color: #000000;
+  display: inline-block;
+  border-radius: 3px;
 }
 
 .board-member-panel {
@@ -38,28 +84,59 @@ $navbar-default-link-hover-bg: #ddd;
 .lists {
 //  overflow: hidden;
 //  clear: both;
-  border: 1px blue solid;
+//  border: 1px blue solid;
 }
 
 .list-container {
-//  float: left;
+  float: left;
   border: 0px black solid;
-  margin: 10px;
+  margin: 5px;
   width: 20%;
-  padding: 0px;
+  padding: 4px 3px 3px;
   background-color: #DBDBDB;
   color: #000000;
-  display: inline-block;
-  border-radius: 8px;
-//  position: fixed;
+  display: block;
+  border-radius: 3px;
+  position: relative;
+}
+
+a.add-card-link {
+  color: #000000;
+}
+
+.add-card-link-container:hover {
+  background-color: #A6A6A6;
+}
+
+.cards-list {
+  min-height: 20px;
+  clear: both;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 4px 4px 1px;
+  z-index: 1;
 }
 
 .card-block {
   border: 0px black solid;
-  padding: 5px;
-  margin: 3px;
+//  padding: 5px;
+//  margin: 3px;
   background-color: #FAFAFA;
   color: #000000;
+  border-radius: 3px;
+  
+  margin-bottom: 5px;
+  max-width: 300px;
+  min-height: 20px;
+  position: relative;
+  display: block;
+  z-index: 0;
+}
+
+.card-text {
+  padding: 6px 8px 4px;
+  position: relative;
+  z-index: 10;
 }
 
 .card-block:hover {
@@ -68,17 +145,13 @@ $navbar-default-link-hover-bg: #ddd;
 }
 
 .dragged {
-  transform:rotate(-6deg);
+  transform:rotate(-5deg);
   -ms-transform:rotate(-6deg); /* IE 9 */
   -webkit-transform:rotate(-6deg); /* Opera, Chrome, and Safari */
 }
 
-.cards-list {
-  min-height: 8px;
-}
-
 .ui-state-highlight {
-  border-radius: 8px;
+  border-radius: 4px;
   background-color: #C4C4C4;
   border: 0px #F0F0F0 solid;
 }

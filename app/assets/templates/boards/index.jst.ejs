@@ -2,11 +2,13 @@
   <div class="col-md-4 col-md-offset-1"> -->
     <h2>My Boards</h2>
 
-    <ul>
+    <div class="boards-container">
       <% boards.each(function(board) { %>
-        <li><a href="#/boards/<%= board.escape("id") %>"><%= board.escape('title') %></a></li>
+        <div class="board">
+          <strong><h3><a href="#/boards/<%= board.escape("id") %>"><%= board.escape('title') %></a></h3></strong>
+        </div>
       <% }) %>
-    </ul>
+    </div>
 
     <br>
 
