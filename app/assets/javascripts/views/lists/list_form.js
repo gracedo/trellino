@@ -33,7 +33,7 @@ Trellino.Views.ListForm = Backbone.View.extend({
       },
       
       error: function() {
-        console.log("error")
+        console.log("error");
       }
     })
   },

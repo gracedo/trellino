@@ -34,7 +34,7 @@ Trellino.Views.CardForm = Backbone.View.extend({
         $('.new-card-form#'+this.list.id).empty();
       },
       error: function() {
-        console.log("erorr creating card");
+        console.log("error creating card");
       }
     })
   },

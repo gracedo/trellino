@@ -3,7 +3,8 @@ Trellino.Views.CardsShow = Backbone.View.extend({
   
   initialize: function(options) {
     this.listenTo(this.model, "remove add change:rank", this.render);
-    this.list = options.list
+    this.list = options.list,
+    this.allCards = options.allCards
   },
   
   events: {
@@ -29,15 +30,17 @@ Trellino.Views.CardsShow = Backbone.View.extend({
   removeCard: function(event) {
     event.preventDefault();
     var that = this;
+    var cardID = this.model.id;
+    var cardToDelete = this.allCards.get(cardID);
     
-    this.model.destroy({
+    cardToDelete.destroy({
       success: function(card) {
         console.log('deleted card');
         var currListShowView = new Trellino.Views.ListsShow({
           model: that.list
         })
         
-        currListShowView.removeSubview(".cards-list", that)
+        currListShowView.removeSubview(".cards-list", that);
       }
     })
   },

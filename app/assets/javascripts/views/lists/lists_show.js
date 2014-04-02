@@ -116,7 +116,8 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
     if(!this.allCards.contains(card)) {
       var cardsShowView = new Trellino.Views.CardsShow({
         model: card,
-        list: this.model
+        list: this.model,
+        allCards: this.allCards
       });
     
       this.addSubview(".cards-list", cardsShowView);
