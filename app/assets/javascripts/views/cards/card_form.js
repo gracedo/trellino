@@ -43,7 +43,5 @@ Trellino.Views.CardForm = Backbone.View.extend({
     event.preventDefault();
     $('.new-card-form#'+this.list.id).empty();
     $(".add-card-link-container[data-list-id='"+this.list.id+"']").removeClass('hidden');
-    //how to select specific container with data-* of list id??
-    // $('.add-card-link#'+this.list.id).removeClass('hidden');
   }
 });

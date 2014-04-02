@@ -40,7 +40,6 @@ Trellino.Views.ListForm = Backbone.View.extend({
   
   removeListForm: function(event) {
     event.preventDefault();
-    debugger
     $('.add-list-link-container').removeClass('hidden');
     $('.new-list-form').empty();
   }

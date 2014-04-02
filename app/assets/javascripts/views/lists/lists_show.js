@@ -126,7 +126,7 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
   
   addCardForm: function(event) {
     event.preventDefault();
-    $(event.target.parentElement).addClass("hidden");
+    $(event.target).addClass("hidden");
     
     var cardFormView = new Trellino.Views.CardForm({
       list: this.model,
