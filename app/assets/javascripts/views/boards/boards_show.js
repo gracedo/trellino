@@ -22,7 +22,7 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
   events: {
     "click a.add-list-link": "addListForm",
     "click button.new-member": "addMemberForm",
-    "click button.remove-board": "removeBoard"
+    "click a.remove-board": "removeBoard"
 //     "sortstop": "sortList"
   },
   

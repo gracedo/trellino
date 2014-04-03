@@ -1,7 +1,18 @@
 <div class="row">
   <div class="board-title">
-    <h2><%= board.escape("title") %>
-    <button class="remove-board btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span> Delete Board</button></h2>
+    <h2><%= board.escape("title") %> 
+      <div class="btn-group">
+        <button type="button" class="btn btn-transparent dropdown-toggle" data-toggle="dropdown">
+          <span class="glyphicon glyphicon-cog"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="#">Edit board title</a></li>
+          <li><a href="#" data-toggle="modal" data-target=".members-modal">Board members</a></li>
+          <li class="divider"></li>
+          <li><a href="#" class="remove-board"><span class="glyphicon glyphicon-trash" style="float:left; margin-right:10px"></span>Delete board</a></li>
+        </ul>
+      </div>
+    </h2>
   </div>
   
   <!-- <div class="panel-group clearfix board-member-panel" id="accordion">
@@ -25,7 +36,7 @@
   </div> -->
     
   <div class="members">
-    <button class="btn btn-members" data-toggle="modal" data-target=".members-modal">Board Members</button>
+    <!-- <button class="btn btn-members" data-toggle="modal" data-target=".members-modal">Board Members</button> -->
   
     <div class="modal fade members-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-sm">
