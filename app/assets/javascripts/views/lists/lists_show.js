@@ -66,7 +66,7 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
     var updatedOrder = this._calculatePosition(parseFloat(prevOrder), parseFloat(nextOrder));
     var cardId = $card.data("id");
     var oldListId = $card.data("list-id");
-    var updatedCardListId = $card.parent().parent().parent().parent().data("id");
+    var updatedCardListId = $card.parent().parent().parent().data("id");
     var cardModel = this.allCards.get(cardId);
     
     cardModel.save({
@@ -74,6 +74,7 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
       list_id: updatedCardListId },
       { patch: true,
         success: function(model){
+          debugger
           $card.data("rank", updatedOrder);
           that.cards.add(model);
           // remove it from the old list's collection

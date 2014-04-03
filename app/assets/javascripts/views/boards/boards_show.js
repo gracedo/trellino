@@ -37,38 +37,39 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
     
     // BOWEN
     
-    $(this.$el.find("div.lists-container")).sortable({
-      cursor: "move",
-      opacity: 1,
-      connectWith: "div.lists-container",
-      dropOnEmpty: true,
-      placeholder: "ui-state-highlight",
-      forcePlaceholderSize: true,
-      start: function(event, ui) {
-        $(ui.item).toggleClass('dragged');
-      },
-      stop: function(event, ui) {
-        debugger
-        $(ui.item).toggleClass('dragged');
-        var $list = $(ui.item.children());
-        var nextOrder = ui.item.next().children().data("rank");
-        var prevOrder = ui.item.prev().children().data("rank");
-    
-        var updatedOrder = that._calculatePosition(parseFloat(prevOrder), parseFloat(nextOrder));
-        var listId = $list.data("id");
-        var listModel = that.lists.get(listId);
-    
-        listModel.save({
-          rank: updatedOrder},
-          { patch: true,
-            success: function(model) {
-              $list.data("rank", updatedOrder);
-            }
-          }
-        );
-      }
-    });
-    
+    // $(this.$el.find("div.lists-container")).sortable({
+//       cursor: "move",
+//       opacity: 1,
+//       connectWith: "div.lists-container",
+//       dropOnEmpty: true,
+//       placeholder: "ui-state-highlight",
+//       forcePlaceholderSize: true,
+//       start: function(event, ui) {
+//         $(event.target).data("ui-sortable").floating = true;
+//         $(ui.item).toggleClass('dragged');
+//       },
+//       stop: function(event, ui) {
+//         $(ui.item).toggleClass('dragged');
+//         var $list = $(ui.item.children());
+//         var nextOrder = ui.item.next().children().data("rank");
+//         var prevOrder = ui.item.prev().children().data("rank");
+//     
+//         var updatedOrder = that._calculatePosition(parseFloat(prevOrder), parseFloat(nextOrder));
+//         var listId = $list.data("id");
+//         var listModel = that.lists.get(listId);
+//     
+//         listModel.save({
+//           rank: updatedOrder},
+//           { patch: true,
+//             success: function(model) {
+//               $list.data("rank", updatedOrder);
+//             }
+//           }
+//         );
+//       }
+//     });
+
+    // $("#placer").remove();
     this.renderSubviews();
     return this;
   },
