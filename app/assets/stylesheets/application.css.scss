@@ -152,6 +152,10 @@ div.board-title {
 //  padding: 10px;
 //}
 
+.lists-container {
+//  min-height: 100px;
+}
+
 .list-container {
   float: left;
   border: 0px black solid;
@@ -249,15 +253,16 @@ a.add-list-link {
 }
 
 .dragged {
-  transform:rotate(-2deg);
-  -ms-transform:rotate(-6deg); /* IE 9 */
-  -webkit-transform:rotate(-6deg); /* Opera, Chrome, and Safari */
+  transform:rotate(-3deg);
+  -ms-transform:rotate(-3deg); /* IE 9 */
+  -webkit-transform:rotate(-3deg); /* Opera, Chrome, and Safari */
 }
 
 .ui-state-highlight {
   border-radius: 4px;
   background-color: #C4C4C4;
   border: 0px #F0F0F0 solid;
+  margin-bottom: 5px;
 }
 
 .list-header {
