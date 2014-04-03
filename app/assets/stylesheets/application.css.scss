@@ -36,6 +36,10 @@ footer {
   border-top: 1px #ffffff solid;
 }
 
+input {
+  color: #000000;
+}
+
 div.nav {
   padding: 1px;
 }
@@ -90,6 +94,19 @@ a:hover {
   color: #ffffff;
   display: inline-block;
   border-radius: 3px;
+  -webkit-box-shadow: 5px 5px 6px -4px black;
+  -moz-box-shadow: 5px 5px 6px -4px black;
+  box-shadow: 5px 5px 6px -4px black;
+}
+
+.board:hover {
+  -webkit-box-shadow: 5px 5px 6px -1px black;
+  -moz-box-shadow: 5px 5px 6px -1px black;
+  box-shadow: 5px 5px 6px -1px black;
+}
+
+a.board-div {
+  text-decoration: none;
 }
 
 div.board-title {
@@ -168,6 +185,15 @@ div.board-title {
   display: block;
   border-radius: 3px;
   position: relative;
+  -webkit-box-shadow: 6px 6px 8px -4px black;
+  -moz-box-shadow: 6px 6px 8px -4px black;
+  box-shadow: 6px 6px 8px -4px black;
+}
+
+.list-container:hover {
+  -webkit-box-shadow: 6px 6px 8px -1px black;
+  -moz-box-shadow: 6px 6px 8px -1px black;
+  box-shadow: 6px 6px 8px -1px black;
 }
 
 .lists-container > div {
@@ -244,6 +270,9 @@ a.add-list-link {
   position: relative;
   display: block;
   z-index: 0;
+  -webkit-box-shadow: 0px 8px 3px -9px black;
+  -moz-box-shadow: 0px 8px 3px -9px black;
+  box-shadow: 0px 8px 3px -9px black;
 }
 
 .card-text {

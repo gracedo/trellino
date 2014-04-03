@@ -53,15 +53,14 @@
               <center><li role="presentation" class="dropdown-header"><%= current_user.email %></li></center>
               <li class="divider" role="presentation"></li>
               <li><a href="#">Profile</a></li>
-              <li><a href="#">Cards</a></li>
-              <li><a href="#">Settings</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Help</a></li>
-              <li><a href="#">Share Trellino</a></li>
+              <li><a href="#">Boards</a></li>
               <li class="divider"></li>
               <li><%= link_to "Log Out", session_url, method: :delete %></li>
             </ul>
           </li>
+        <% else %>
+          <li><a class="nav-link" href="<%= new_user_url %>">Sign Up</a></li>
+          <li><a class="nav-link" href="<%= new_session_url %>">Sign In</a></li>
         <% end %>
       </ul>
       
