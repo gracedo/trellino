@@ -22,9 +22,8 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
   events: {
     "click a.add-list-link": "addListForm",
     "click button.new-member": "addMemberForm",
-    "click button.remove-board": "removeBoard",
+    "click button.remove-board": "removeBoard"
 //     "sortstop": "sortList"
-    "click button.new-board": "createBoard"
   },
   
   render: function() {
@@ -150,21 +149,6 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
     
     this.addSubview(".board-members", membersShowView);
     membersShowView.render();
-  },
-  
-  createBoard: function(event) {
-    event.preventDefault();
-    debugger
-    
-    var $formData = $(event.currentTarget.form).serializeJSON();
-    this.model.set($formData);
-    
-    this.collection.create(this.model, {
-      success: function(board) {
-        // Backbone.history.navigate('#/boards/' + board.id, { trigger: true })
-        console.log("board successfully created")
-      }
-    })
   },
   
   removeBoard: function() {
