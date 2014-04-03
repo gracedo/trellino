@@ -22,8 +22,9 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
   events: {
     "click a.add-list-link": "addListForm",
     "click button.new-member": "addMemberForm",
-    "click button.remove-board": "removeBoard"// ,
+    "click button.remove-board": "removeBoard",
 //     "sortstop": "sortList"
+    "click button.new-board": "createBoard"
   },
   
   render: function() {
@@ -37,37 +38,38 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
     
     // BOWEN
     
-    // $(this.$el.find("div.lists-container")).sortable({
-//       cursor: "move",
-//       opacity: 1,
-//       connectWith: "div.lists-container",
-//       dropOnEmpty: true,
-//       placeholder: "ui-state-highlight",
-//       forcePlaceholderSize: true,
-//       start: function(event, ui) {
-//         $(event.target).data("ui-sortable").floating = true;
-//         $(ui.item).toggleClass('dragged');
-//       },
-//       stop: function(event, ui) {
-//         $(ui.item).toggleClass('dragged');
-//         var $list = $(ui.item.children());
-//         var nextOrder = ui.item.next().children().data("rank");
-//         var prevOrder = ui.item.prev().children().data("rank");
-//     
-//         var updatedOrder = that._calculatePosition(parseFloat(prevOrder), parseFloat(nextOrder));
-//         var listId = $list.data("id");
-//         var listModel = that.lists.get(listId);
-//     
-//         listModel.save({
-//           rank: updatedOrder},
-//           { patch: true,
-//             success: function(model) {
-//               $list.data("rank", updatedOrder);
-//             }
-//           }
-//         );
-//       }
-//     });
+    $(this.$el.find("div.lists-container")).sortable({
+      cursor: "move",
+      opacity: 1,
+      connectWith: "div.lists-container",
+      dropOnEmpty: true,
+      placeholder: "ui-state-highlight",
+      forcePlaceholderSize: true,
+      start: function(event, ui) {
+        $(event.target).data("ui-sortable").floating = true;
+        $(ui.item).toggleClass('dragged');
+      },
+      stop: function(event, ui) {
+        $(event.target).data("ui-sortable").floating = true;
+        $(ui.item).toggleClass('dragged');
+        var $list = $(ui.item.children());
+        var nextOrder = ui.item.next().children().data("rank");
+        var prevOrder = ui.item.prev().children().data("rank");
+    
+        var updatedOrder = that._calculatePosition(parseFloat(prevOrder), parseFloat(nextOrder));
+        var listId = $list.data("id");
+        var listModel = that.lists.get(listId);
+    
+        listModel.save({
+          rank: updatedOrder},
+          { patch: true,
+            success: function(model) {
+              $list.data("rank", updatedOrder);
+            }
+          }
+        );
+      }
+    });
 
     // $("#placer").remove();
     this.renderSubviews();
@@ -148,6 +150,21 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
     
     this.addSubview(".board-members", membersShowView);
     membersShowView.render();
+  },
+  
+  createBoard: function(event) {
+    event.preventDefault();
+    debugger
+    
+    var $formData = $(event.currentTarget.form).serializeJSON();
+    this.model.set($formData);
+    
+    this.collection.create(this.model, {
+      success: function(board) {
+        // Backbone.history.navigate('#/boards/' + board.id, { trigger: true })
+        console.log("board successfully created")
+      }
+    })
   },
   
   removeBoard: function() {

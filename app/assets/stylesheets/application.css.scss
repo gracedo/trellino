@@ -26,6 +26,7 @@ body {
   padding-top: 40px;
   background-color: #336E87;
   color: #ffffff;
+  overflow-x:scroll;
 }
 
 footer {
@@ -169,7 +170,7 @@ div.board-title {
   position: relative;
 }
 
-.list-container>div {
+.lists-container > div {
 //  float: left;
 }
 

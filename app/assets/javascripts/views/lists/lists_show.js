@@ -74,7 +74,6 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
       list_id: updatedCardListId },
       { patch: true,
         success: function(model){
-          debugger
           $card.data("rank", updatedOrder);
           that.cards.add(model);
           // remove it from the old list's collection

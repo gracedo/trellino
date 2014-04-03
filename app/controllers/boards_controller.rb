@@ -25,8 +25,10 @@ class BoardsController < ApplicationController
 
   def create
     @board = current_user.boards.build(board_params)
+
     if @board.save
-      render json: @board
+      render "index"
+      # render json: @board
     else
       render json: { errors: @board.errors.full_messages }, status: 422
     end

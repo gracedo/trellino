@@ -32,9 +32,10 @@
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" style="margin-right: 10px;"><span class="glyphicon glyphicon-plus"></span> Add Board</a>
             <ul class="dropdown-menu">
               <div class="new-board-dropdown">
-                <h3>Create Board</h3>
+                <h3>Create Board</h3> 
+                <!-- Make this a rails submission form? -->
 
-                <form role="form">
+                <form action="<%= boards_url %>" method="POST" role="form">
                   <div class="form-group">
                     <label for="title">Title</label>
                     <input type="text" class="form-control" name="board[title]" placeholder="Untitled Board" id="title">
