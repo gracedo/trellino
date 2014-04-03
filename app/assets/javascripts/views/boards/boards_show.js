@@ -22,7 +22,8 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
   events: {
     "click a.add-list-link": "addListForm",
     "click button.new-member": "addMemberForm",
-    "click a.remove-board": "removeBoard"
+    "click a.remove-board": "removeBoard",
+    "click button.edit-board-title": "editBoardTitle"
 //     "sortstop": "sortList"
   },
   
@@ -162,5 +163,24 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
         console.log("error deleting board " + model.id + ", titled " + model.get("title"))
       }
     });
+  },
+  
+  editBoardTitle: function(event) {
+    event.preventDefault();
+    var $formData = $(event.currentTarget.form).serializeJSON().board;
+
+    this.model.save($formData, {
+      patch: true,
+      success: function() {
+        console.log("board successfully updated");
+        $(".edit-board-form").modal('hide');
+        $('body').removeClass('modal-open');
+        $('.modal-backdrop').remove();
+      },
+      error: function() {
+        console.log("board was not updated");
+        console.log(arguments[1].responseText);
+      }
+    })
   }
 })
