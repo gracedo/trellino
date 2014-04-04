@@ -73,6 +73,8 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
 
     // $("#placer").remove();
     this.renderSubviews();
+    debugger
+    this.$el.find('.lists-container').append(this.$el.find('.new-list-container'));
     return this;
   },
   
