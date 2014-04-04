@@ -180,8 +180,8 @@ div.board-title {
 //}
 
 .all-lists-container {
-  display: inline-block;
-  white-space: nowrap;
+//  display: inline-block;
+//  white-space: nowrap;
 }
 
 .lists-container > div {
@@ -193,6 +193,7 @@ div.board-title {
 //  width: auto;
 //  overflow: hidden;
   display: inline-block;
+  vertical-align: top;
 }
 
 .list-container {
