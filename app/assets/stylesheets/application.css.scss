@@ -181,7 +181,9 @@ div.board-title {
 
 .all-lists-container {
 //  display: inline-block;
-//  white-space: nowrap;
+  white-space: nowrap;
+  overflow-y: hidden;
+  overflow-x: auto;
 }
 
 .lists-container > div {
@@ -273,7 +275,7 @@ a.add-card-link {
   overflow-x: hidden;
   padding: 4px 4px 1px;
   z-index: 1;
-  max-height: 210px;
+  max-height: 318px;
 }
 
 .card-block {
