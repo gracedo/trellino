@@ -7,7 +7,7 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
     this.cards = this.model.cards();
     this.allCards = this.board.cards();
     
-    this.listenTo(this.model, "add remove change:rank sync", this.render);
+    this.listenTo(this.model, "add change:rank sync", this.render);
     this.listenTo(this.cards, "add", this.addCard);
     this.listenTo(this.cards, "remove", this.render);
     
@@ -77,7 +77,8 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
           $card.data("rank", updatedOrder);
           that.cards.add(model);
           // remove it from the old list's collection
-          Trellino.Collections.lists.get(oldListId).cards().remove(model, { silent: true });
+          // Trellino.Collections.lists.get(oldListId).cards().remove(model, { silent: true });
+          that.board.lists().get(oldListId).cards().remove(model, { silent: true });
           $card.data("list-id", updatedCardListId);
         }
       });
@@ -106,7 +107,7 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
           model: that.board
         })
 
-        currBoardShowView.removeSubview(".lists", that); // remove list showview from board subviews
+        currBoardShowView.removeSubview(".lists-container", that); // remove list showview from board subviews
         console.log("deleted list " + list.id + ", titled " + list.get("title"));
       }
     });
