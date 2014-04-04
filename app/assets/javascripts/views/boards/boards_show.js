@@ -73,7 +73,7 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
 
     // $("#placer").remove();
     this.renderSubviews();
-    // this.$el.find('.lists-container').append(this.$el.find('.new-list-container'));
+    this.$el.find('.lists-container').append(this.$el.find('.new-list-container'));
     return this;
   },
   
@@ -142,6 +142,7 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
     Trellino.Collections.lists.add(list);
     this.addSubview(".lists-container", listsShowView);
     listsShowView.render();
+    this.$el.find('.lists-container').append(this.$el.find('.new-list-container'));
   },
   
   addMember: function(member) {
