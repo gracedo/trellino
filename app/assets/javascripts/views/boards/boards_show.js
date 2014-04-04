@@ -43,11 +43,12 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
       opacity: 1,
       connectWith: "div.lists-container",
       dropOnEmpty: true,
-      placeholder: "ui-state-highlight",
+      placeholder: "ui-state-list-highlight",
       forcePlaceholderSize: true,
       start: function(event, ui) {
         $(event.target).data("ui-sortable").floating = true;
         $(ui.item).toggleClass('dragged');
+        $('.new-list-container').addClass('hidden');
       },
       stop: function(event, ui) {
         $(event.target).data("ui-sortable").floating = true;
@@ -59,6 +60,7 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
         var updatedOrder = that._calculatePosition(parseFloat(prevOrder), parseFloat(nextOrder));
         var listId = $list.data("id");
         var listModel = that.lists.get(listId);
+        $('.new-list-container').removeClass('hidden');
     
         listModel.save({
           rank: updatedOrder},

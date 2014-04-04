@@ -197,9 +197,8 @@ div.board-title {
 }
 
 .list-container {
-//  float: left;
-  border: 0px black solid;
   margin: 5px;
+  margin-bottom: 20px;
   width: 250px;
   min-width: 200px;
   padding: 4px 3px 3px;
@@ -274,6 +273,7 @@ a.add-card-link {
   overflow-x: hidden;
   padding: 4px 4px 1px;
   z-index: 1;
+  max-height: 210px;
 }
 
 .card-block {
@@ -315,6 +315,12 @@ a.add-card-link {
   border-radius: 4px;
   background-color: #C4C4C4;
   border: 0px #F0F0F0 solid;
+  margin-bottom: 5px;
+}
+
+.ui-state-list-highlight {
+  border-radius: 4px;
+  background-color: #2A586B;
   margin-bottom: 5px;
 }
 
