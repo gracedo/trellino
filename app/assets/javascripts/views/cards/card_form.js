@@ -2,8 +2,9 @@ Trellino.Views.CardForm = Backbone.View.extend({
   template: JST['cards/form'],
   
   initialize: function(options) {
-    this.list = options.list
-    this.cards = options.cards
+    this.list = options.list;
+    this.cards = options.cards;
+    this.listView = options.listView;
   },
   
   events: {
@@ -23,15 +24,17 @@ Trellino.Views.CardForm = Backbone.View.extend({
   },
   
   create: function(event) {
+    var that = this;
     event.preventDefault();
     event.stopPropagation();
     var formData = $(event.target.form).serializeJSON().card;
     var newCard = new Trellino.Models.Card(formData);
 
     this.cards.create(newCard, {
-      sucess: function() {
+      success: function() {
         console.log("card successfully created");
-        $('.new-card-form#'+this.list.id).empty();
+        // $('.new-card-form#'+this.list.id).empty();
+        that.listView.addCard(newCard);
       },
       error: function() {
         console.log("error creating card");

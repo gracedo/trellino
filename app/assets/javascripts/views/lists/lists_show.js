@@ -7,8 +7,8 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
     this.cards = this.model.cards();
     this.allCards = this.board.cards();
     
-    this.listenTo(this.model, "add change:rank sync", this.render);
-    this.listenTo(this.cards, "add", this.addCard);
+    // this.listenTo(this.model, "change:rank", this.render);
+    // this.listenTo(this.cards, "add", this.addCard);
     this.listenTo(this.cards, "remove", this.render);
     
     this.cards.each(
@@ -114,7 +114,7 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
   },
   
   addCard: function(card) {
-    if(!this.allCards.contains(card)) {
+    // if(!this.alreadyExists(card)) {
       var cardsShowView = new Trellino.Views.CardsShow({
         model: card,
         list: this.model,
@@ -123,7 +123,18 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
     
       this.addSubview(".cards-list", cardsShowView);
       cardsShowView.render();
-    }
+    // }
+  },
+  
+  alreadyExists: function(card) {
+    var bool = false;
+    this.cards.each(function(c) {
+      if(c.id === card.id) {
+        bool = true;
+      }
+    });
+    
+    return bool;
   },
   
   addCardForm: function(event) {
@@ -132,10 +143,12 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
     
     var cardFormView = new Trellino.Views.CardForm({
       list: this.model,
-      cards: this.cards
+      cards: this.cards,
+      listView: this
     });
     
     $('.new-card-form#'+this.model.id).removeClass('hidden');
     $('.new-card-form#'+this.model.id).html(cardFormView.render().$el);
+    // $('.lists-container').append($('.new-card-form#'+this.model.id'));
   }
 })
