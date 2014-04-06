@@ -8,7 +8,6 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
     this.listenTo(this.model, "sync remove", this.render);
     this.listenTo(this.lists, "add", this.addList);
     this.listenTo(this.members, "add", this.addMember);
-    this.listenTo(this.lists, "remove", this.render);
 
     this.lists.each(
       this.addList.bind(this)

@@ -102,15 +102,24 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
     var that = this;
 
     this.model.destroy({
+      wait: true,
       success: function (list) {
+        debugger
         var currBoardShowView = new Trellino.Views.BoardsShow({
           model: that.board
         })
 
         currBoardShowView.removeSubview(".lists-container", that); // remove list showview from board subviews
         console.log("deleted list " + list.id + ", titled " + list.get("title"));
+      },
+      
+      error: function() {
+        console.log("list deletion failed");
+        console.log(arguments[1].responseText)
       }
     });
+    
+    debugger
   },
   
   addCard: function(card) {
