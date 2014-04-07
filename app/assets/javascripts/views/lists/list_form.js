@@ -30,9 +30,9 @@ Trellino.Views.ListForm = Backbone.View.extend({
     $('.add-list-link-container').removeClass('hidden');
 
     this.lists.create(newList, {
-      success: function() {
+      success: function(list) {
         // Trellino.Collections.lists.add(newList);
-        console.log("successfully added list");
+        console.log("successfully added list " + list.id);
       },
       
       error: function() {

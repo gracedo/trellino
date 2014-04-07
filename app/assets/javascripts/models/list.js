@@ -1,4 +1,4 @@
-Trellino.Models.List = Backbone.Model.extend({
+Trellino.Models.List = Backbone.Model.extend({  
   parse: function(jsonResponse) {
     // console.log("parsing list")
     if (jsonResponse.cards){
