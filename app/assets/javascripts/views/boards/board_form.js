@@ -2,7 +2,7 @@ Trellino.Views.BoardForm = Backbone.View.extend({
   template: JST["boards/form"],
   
   initialize: function(options) {
-    this.model = options.model;
+    this.model = new Trellino.Models.Board();
     this.collection = options.collection;
   },
   
@@ -19,13 +19,18 @@ Trellino.Views.BoardForm = Backbone.View.extend({
   submit: function(event) {
     event.preventDefault();
 
-    var $formData = $(event.currentTarget.form).serializeJSON();
+    var $formData = $(event.currentTarget.form).serializeJSON().board;
     this.model.set($formData);
     
     this.collection.create(this.model, {
-      success: function(board) {
-        // Backbone.history.navigate('#/boards/' + board.id, { trigger: true })
-        console.log("board successfully created")
+      success: function(newBoard) {
+        console.log("board successfully created");
+        Backbone.history.navigate('#/boards/' + newBoard.id, { trigger: true });
+      },
+      error: function() {
+        console.log("board creation failed");
+        console.log(arguments[1].statusText);
+        // Backbone.history.navigate('', { trigger: true });
       }
     })
   }

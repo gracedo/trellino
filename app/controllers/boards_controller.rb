@@ -27,8 +27,10 @@ class BoardsController < ApplicationController
     @board = current_user.boards.build(board_params)
 
     if @board.save
-      render "index"
-      # render json: @board
+      respond_to do |format|
+        format.html { render :index }
+        format.json { render json: @board }
+      end
     else
       render json: { errors: @board.errors.full_messages }, status: 422
     end

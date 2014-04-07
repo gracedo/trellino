@@ -16,7 +16,6 @@ Trellino.Routers.Boards = Backbone.Router.extend({
   
   new: function() {
     var boardFormView = new Trellino.Views.BoardForm({
-      model: new Trellino.Models.Board(),
       collection: Trellino.Collections.boards
     })
     
