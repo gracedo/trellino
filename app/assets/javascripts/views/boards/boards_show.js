@@ -46,6 +46,7 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
       dropOnEmpty: true,
       placeholder: "ui-state-list-highlight",
       forcePlaceholderSize: true,
+      cancel: ".new-list-container",
       start: function(event, ui) {
         $(event.target).data("ui-sortable").floating = true;
         $(ui.item).toggleClass('dragged');
