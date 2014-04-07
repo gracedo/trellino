@@ -39,7 +39,7 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
     // BOWEN
     
     $(this.$el.find("div.lists-container")).sortable({
-      cursor: "move",
+      cursor: "pointer",
       opacity: 1,
       connectWith: "div.lists-container",
       dropOnEmpty: true,
