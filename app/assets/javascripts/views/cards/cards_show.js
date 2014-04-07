@@ -2,9 +2,11 @@ Trellino.Views.CardsShow = Backbone.View.extend({
   template: JST['cards/show'],
   
   initialize: function(options) {
-    // this.listenTo(this.model, "remove", this.render);
-    this.list = options.list,
-    this.allCards = options.allCards
+    this.list = options.list;
+    this.allCards = options.allCards;
+    
+    // this.listenTo(this.model, "change:rank sync add", this.render);
+    // this.listenTo(this.list, "change", this.render);
   },
   
   events: {

@@ -7,10 +7,10 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
     this.cards = this.model.cards();
     this.allCards = this.board.cards();
     
-    this.listenTo(this.model, "change:rank", this.render);
-    // this.listenTo(this.cards, "add", this.addCard);
-    this.listenTo(this.cards, "remove", this.render);
-    this.listenTo(this.board.lists(), "sync", this.render)
+    // this.listenTo(this.model, "sync", this.render);
+    // this.listenTo(this.cards, "add", this.render);
+    // this.listenTo(this.cards, "sync change remove add", this.render);
+    this.listenTo(this.board.lists(), "sync", this.render);
     
     this.cards.each(
       this.addCard.bind(this)
@@ -74,12 +74,14 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
       rank: updatedOrder,
       list_id: updatedCardListId },
       { patch: true,
-        success: function(model){
+        success: function(card){
           $card.data("rank", updatedOrder);
-          that.cards.add(model);
-          // remove it from the old list's collection
-          // Trellino.Collections.lists.get(oldListId).cards().remove(model, { silent: true });
-          that.board.lists().get(oldListId).cards().remove(model, { silent: true });
+          that.cards.remove(card); // remove it from the old list's cards
+          
+          // Trellino.Collections.lists.get(oldListId).cards().remove(card, { silent: true });
+          // that.board.lists().get(oldListId).cards().remove(card, { silent: true });
+
+          that.board.lists().get(updatedCardListId).cards().add(card);
           $card.data("list-id", updatedCardListId);
         }
       });
