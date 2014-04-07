@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140331193755) do
+ActiveRecord::Schema.define(version: 20140407085159) do
 
   create_table "board_assignments", force: true do |t|
     t.integer  "user_id",    null: false
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20140331193755) do
 
   create_table "lists", force: true do |t|
     t.string   "title",      null: false
-    t.integer  "rank",       null: false
+    t.float    "rank",       null: false
     t.integer  "board_id",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -14,8 +14,10 @@ Trellino.Views.ListForm = Backbone.View.extend({
   render: function() {
     var renderedContent = this.template({
       boardID: this.board.id,
-      rank: this.lists.length+1
+      // rank: this.lists.length+1
+      rank: parseInt(this.lists.last().get("rank")+1)
     });
+
     this.$el.html(renderedContent);
     return this;
   },

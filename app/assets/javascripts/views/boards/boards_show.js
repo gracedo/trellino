@@ -6,7 +6,7 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
     this.members = this.model.members();
     
     this.listenTo(this.model, "sync remove add", this.render);
-    this.listenTo(this.lists, "sync", this.render);
+    // this.listenTo(this.lists, "sync", this.render);
     this.listenTo(this.lists, "add", this.addList);
     this.listenTo(this.members, "add", this.addMember);
 
@@ -62,8 +62,7 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
         var listModel = that.lists.get(listId);
         $('.new-list-container').removeClass('hidden');
     
-        listModel.save({
-          rank: updatedOrder},
+        listModel.save({ rank: updatedOrder },
           { patch: true,
             success: function(model) {
               $list.data("rank", updatedOrder);
