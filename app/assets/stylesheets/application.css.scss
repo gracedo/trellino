@@ -329,6 +329,8 @@ a.add-card-link {
   position: relative;
   display: block;
   z-index: 0;
+  word-wrap: break-word;
+  white-space: normal;
   -webkit-box-shadow: 0px 8px 3px -9px black;
   -moz-box-shadow: 0px 8px 3px -9px black;
   box-shadow: 0px 8px 3px -9px black;
