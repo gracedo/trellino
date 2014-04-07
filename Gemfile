@@ -15,8 +15,6 @@ group :doc do
 end
 
 group :development do
-  gem 'taps'
-  gem 'rvm'
   gem 'better_errors'
   gem 'binding_of_caller'
 end
