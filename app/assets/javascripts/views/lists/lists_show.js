@@ -6,6 +6,7 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
     this.board = Trellino.Collections.boards.get(this.boardID);
     this.cards = this.model.cards();
     this.allCards = this.board.cards();
+    // this.allCards = [];
     
     // this.listenTo(this.model, "change:rank", this.render);
     // this.listenTo(this.cards, "add", this.addCard);
@@ -112,7 +113,6 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
       },
       
       error: function() {
-        debugger
         console.log("list deletion failed");
         console.log(arguments[1].responseText)
       }
@@ -120,27 +120,15 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
   },
   
   addCard: function(card) {
-    // if(!this.alreadyExists(card)) {
-      var cardsShowView = new Trellino.Views.CardsShow({
-        model: card,
-        list: this.model,
-        allCards: this.allCards
-      });
-    
-      this.addSubview(".cards-list", cardsShowView);
-      cardsShowView.render();
-    // }
-  },
-  
-  alreadyExists: function(card) {
-    var bool = false;
-    this.cards.each(function(c) {
-      if(c.id === card.id) {
-        bool = true;
-      }
+    var cardsShowView = new Trellino.Views.CardsShow({
+      model: card,
+      list: this.model,
+      allCards: this.allCards
     });
-    
-    return bool;
+  
+    this.addSubview(".cards-list", cardsShowView);
+    this.allCards.push(card);
+    cardsShowView.render();
   },
   
   addCardForm: function(event) {
