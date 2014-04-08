@@ -1,4 +1,5 @@
 Trellino::Application.routes.draw do
+  root to: 'static_pages#root'
   resources :boards, only: [:index, :show, :create, :update, :destroy] do
     resources :lists, only: [:index, :show, :create, :update, :destroy]
   end
@@ -8,5 +9,4 @@ Trellino::Application.routes.draw do
   resources :card_assignments, only: :destroy
   resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create, :destroy]
-  root to: 'boards#index'
 end

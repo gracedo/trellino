@@ -1,0 +1,23 @@
+<div id="root">
+  <center>
+    <br><br>
+    <div class="jumbotron" align="left">
+      <h1>Tasks & To-Do's, <strong>solved</strong>.</h1>
+      <br>
+      <p class="lead"><strong>Trellojello</strong> helps you organize your tasks from all sectors of your life, from work, to play, to relationships, to family, to what you're eating for dinner tonight... simple, easy, and fun!</p>
+      <br>
+    
+      <form action="<%= session_url %>" method="post" accept-charset="utf-8">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      
+        <input type="hidden" name="user[email]" value="testing1000@test.com" id="email">
+        <input type="hidden" name="user[password]" value="testing" id="password">
+
+      <p align="center"><button type="submit" class="btn btn-primary btn-lg btn-block" role="button" style="padding:30px;font-size:24px;">Sign in as guest user</button></p>
+      </form>
+    
+      <br>
+      <p><a href="users/new" class="btn btn-success btn-lg" role="button">Get Started</a> <a href="" class="btn btn-info btn-lg" role="button">Learn More</a></p>
+    </div>
+  </center>
+</div>

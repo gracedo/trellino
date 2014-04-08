@@ -38,6 +38,6 @@ Trellino.Routers.Boards = Backbone.Router.extend({
     }
     
     this.currentView = view;
-    $('.container').append(view.render().$el)
+    $('.container').html(view.render().$el)
   }
 });
