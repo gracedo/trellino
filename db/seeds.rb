@@ -7,7 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 users = User.create!([
-  {email: 'simis1000@gmail.com', password: 123}
+  {email: 'testing1000@test.com', password: "testing"},
+  {email: 'testing2000@test.com', password: "testing"},
+  {email: 'testing3000@test.com', password: "testing"}
 ])
 
 boards = Board.create!([
@@ -17,7 +19,9 @@ boards = Board.create!([
 
 board_assignments = BoardAssignment.create!([
   {user_id: 1, board_id: 1},
-  {user_id: 1, board_id: 2}
+  {user_id: 1, board_id: 2},
+  {user_id: 2, board_id: 2},
+  {user_id: 3, board_id: 2}
 ])
 
 lists = List.create!([
