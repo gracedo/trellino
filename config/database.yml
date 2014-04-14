@@ -1,7 +1,11 @@
-
 development:
   adapter: sqlite3
-  database: trellino_development
-  host: localhost
+  database: trellino_development.sqlite3
+  pool: 5
+  timeout: 5000
+  
+production:
+  adapter: sqlite3
+  database: trellino_development.sqlite3
   pool: 5
   timeout: 5000
