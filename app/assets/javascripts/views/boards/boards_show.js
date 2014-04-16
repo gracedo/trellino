@@ -62,7 +62,7 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
         var listId = $list.data("id");
         var listModel = that.lists.get(listId);
         $('.new-list-container').removeClass('hidden');
-    
+
         listModel.save({ rank: updatedOrder },
           { patch: true,
             success: function(model) {

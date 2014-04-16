@@ -5,7 +5,7 @@ Trellino.Views.CardsShow = Backbone.View.extend({
     this.list = options.list;
     this.allCards = options.allCards;
     
-    // this.listenTo(this.model, "change:rank sync add", this.render);
+    this.listenTo(this.model, "change", this.render);
     // this.listenTo(this.list, "change", this.render);
   },
   

@@ -37,6 +37,7 @@ Trellino.Views.CardForm = Backbone.View.extend({
       },
       error: function() {
         console.log("error creating card");
+        that.$('#title').effect("highlight", {}, 700);
       }
     })
   },

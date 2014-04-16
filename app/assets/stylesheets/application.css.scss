@@ -104,7 +104,7 @@ a:hover {
   bottom: 0;
   right: 0;
   position: absolute;
-  z-index: -1;  
+  z-index: -1;
   min-height: 94%; 
 }
 
@@ -349,7 +349,7 @@ a.add-card-link {
   overflow-y: auto;
   overflow-x: hidden;
   padding: 4px 4px 1px;
-  z-index: 1;
+//  z-index: 1;
   max-height: 388px;
 }
 
@@ -365,7 +365,7 @@ a.add-card-link {
   min-height: 20px;
   position: relative;
   display: block;
-  z-index: 0;
+//  z-index: 0;
   word-wrap: break-word;
   white-space: normal;
   -webkit-box-shadow: 0px 8px 3px -9px black;
@@ -376,7 +376,7 @@ a.add-card-link {
 .card-text {
   padding: 6px 8px 4px;
   position: relative;
-  z-index: 10;
+//  z-index: 10;
 }
 
 .card-block:hover {

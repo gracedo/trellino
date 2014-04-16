@@ -20,7 +20,6 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
   events: {
     "click button.remove-list": "removeList",
     "click a.add-card-link": "addCardForm",
-    // "blur .add-card-container": "removeCardForm",
     "sortstop": "sortCard"
   },
   
