@@ -3,7 +3,6 @@ Trellino.Views.MemberForm = Backbone.View.extend({
   
   initialize: function(options) {
     this.board = options.board;
-    // this.lists = options.lists;
     this.members = options.members;
   },
   

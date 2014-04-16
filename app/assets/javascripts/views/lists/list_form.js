@@ -34,7 +34,7 @@ Trellino.Views.ListForm = Backbone.View.extend({
     var $formData = $(event.currentTarget.form).serializeJSON().list;
     
     var newList = new Trellino.Models.List($formData);
-        $('.add-list-link-container').removeClass('hidden');
+    $('.add-list-link-container').removeClass('hidden');
 
     this.lists.create(newList, {
       success: function() {

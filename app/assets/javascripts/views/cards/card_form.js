@@ -10,7 +10,7 @@ Trellino.Views.CardForm = Backbone.View.extend({
   events: {
     "click button.new-card": "create",
     "click button.cancel-new-card": "removeForm",
-    // "click button:not(.new-card) div:not(.card-form)": "removeForm" //get blur to ignore button clicks?
+    // "click button:not(.new-card) div:not(.card-form)": "removeForm" //get blur to ignore button clicks
   },
 
   render: function() {
