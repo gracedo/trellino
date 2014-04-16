@@ -9,7 +9,6 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
     
     // this.listenTo(this.model, "sync", this.render);
     // this.listenTo(this.cards, "add", this.render);
-    // this.listenTo(this.cards, "sync change remove add", this.render);
     this.listenTo(this.board.lists(), "sync", this.render);
     
     this.cards.each(
@@ -76,8 +75,6 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
         success: function(card){
           $card.data("rank", updatedOrder);
           that.cards.remove(card); // remove it from the old list's cards
-          
-          // Trellino.Collections.lists.get(oldListId).cards().remove(card, { silent: true });
           // that.board.lists().get(oldListId).cards().remove(card, { silent: true });
 
           that.board.lists().get(updatedCardListId).cards().add(card);
@@ -144,6 +141,5 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
     
     $('.new-card-form#'+this.model.id).removeClass('hidden');
     $('.new-card-form#'+this.model.id).html(cardFormView.render().$el);
-    // $('.lists-container').append($('.new-card-form#'+this.model.id'));
   }
 })

@@ -20,7 +20,6 @@ Trellino.Views.ListForm = Backbone.View.extend({
     
     var renderedContent = this.template({
       boardID: this.board.id,
-      // rank: this.lists.length+1
       rank: rank
     });
 
@@ -29,20 +28,23 @@ Trellino.Views.ListForm = Backbone.View.extend({
   },
   
   create: function(event) {
+    var that = this;
     event.preventDefault();
+    event.stopPropagation();
     var $formData = $(event.currentTarget.form).serializeJSON().list;
     
     var newList = new Trellino.Models.List($formData);
-    $('.add-list-link-container').removeClass('hidden');
+        $('.add-list-link-container').removeClass('hidden');
 
     this.lists.create(newList, {
-      success: function(list) {
-        // Trellino.Collections.lists.add(newList);
-        console.log("successfully added list " + list.id);
+      success: function() {
+        console.log("successfully created list");
+        // $('.add-list-link-container').removeClass('hidden');
       },
-      
       error: function() {
-        console.log("error");
+        console.log("error creating list");
+        debugger
+        that.$('#title').effect("highlight", {}, 700);
       }
     })
   },

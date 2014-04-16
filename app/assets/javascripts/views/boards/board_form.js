@@ -30,7 +30,6 @@ Trellino.Views.BoardForm = Backbone.View.extend({
       error: function() {
         console.log("board creation failed");
         console.log(arguments[1].statusText);
-        // Backbone.history.navigate('', { trigger: true });
       }
     })
   }

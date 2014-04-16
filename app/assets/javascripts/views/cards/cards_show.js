@@ -22,8 +22,6 @@ Trellino.Views.CardsShow = Backbone.View.extend({
     })
     
     $('.add-card-link-container').removeClass('hidden');
-    // $('.add-card-link#'+this.list.id).removeClass('hidden');
-    // $('.new-card-form').empty();
     $('.new-card-form').addClass('hidden');
     this.$el.html(renderedContent);
     return this;
