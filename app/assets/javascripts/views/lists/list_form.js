@@ -8,8 +8,9 @@ Trellino.Views.ListForm = Backbone.View.extend({
   },
   
   events: {
-    "click button.new-list": "create",
-    "click button.cancel-new-list": "removeListForm"
+    "mousedown button.new-list": "create",
+    "mousedown button.cancel-new-list": "removeListForm",
+    "blur .list-form": "removeListForm"
   },
   
   render: function() {
@@ -51,6 +52,7 @@ Trellino.Views.ListForm = Backbone.View.extend({
   
   removeListForm: function(event) {
     event.preventDefault();
+    
     $('.add-list-link-container').removeClass('hidden');
     $('.new-list-form').empty();
   }
