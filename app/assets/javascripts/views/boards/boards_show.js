@@ -6,7 +6,7 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
     this.members = this.model.members();
     
     this.listenTo(this.model, "sync remove add", this.render);
-    this.listenTo(this.lists, "add", this.addList);
+    // this.listenTo(this.lists, "add", this.addList);
     this.listenTo(this.members, "add", this.addMember);
 
     this.lists.each(
@@ -94,7 +94,8 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
     
     var listFormView = new Trellino.Views.ListForm({
       board: this.model,
-      lists: this.lists
+      lists: this.lists,
+      boardShowView: this
     });
     
     $('.new-list-form').html(listFormView.render().$el);

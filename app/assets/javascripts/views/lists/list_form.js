@@ -4,6 +4,7 @@ Trellino.Views.ListForm = Backbone.View.extend({
   initialize: function(options) {
     this.board = options.board;
     this.lists = options.lists;
+    this.boardShowView = options.boardShowView;
   },
   
   events: {
@@ -34,16 +35,15 @@ Trellino.Views.ListForm = Backbone.View.extend({
     var $formData = $(event.currentTarget.form).serializeJSON().list;
     
     var newList = new Trellino.Models.List($formData);
-    $('.add-list-link-container').removeClass('hidden');
 
     this.lists.create(newList, {
-      success: function() {
+      success: function(model) {
+        that.boardShowView.addList(model);
         console.log("successfully created list");
-        // $('.add-list-link-container').removeClass('hidden');
+        $('.add-list-link-container').removeClass('hidden');
       },
       error: function() {
         console.log("error creating list");
-        debugger
         that.$('#title').effect("highlight", {}, 700);
       }
     })
