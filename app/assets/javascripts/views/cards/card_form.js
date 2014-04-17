@@ -10,7 +10,7 @@ Trellino.Views.CardForm = Backbone.View.extend({
   events: {
     "click button.new-card": "create",
     "click button.cancel-new-card": "removeForm",
-    // "click button:not(.new-card) div:not(.card-form)": "removeForm" //get blur to ignore button clicks
+    "blur .card-form": "removeForm"
   },
 
   render: function() {
@@ -44,7 +44,10 @@ Trellino.Views.CardForm = Backbone.View.extend({
   
   removeForm: function(event) {
     event.preventDefault();
-    $('.new-card-form#'+this.list.id).empty();
-    $(".add-card-link-container[data-list-id='"+this.list.id+"']").removeClass('hidden');
+    
+    if (!$(".card-form").is(":focus")) {
+      $('.new-card-form#'+this.list.id).empty();
+      $(".add-card-link-container[data-list-id='"+this.list.id+"']").removeClass('hidden');
+    }
   }
 });
