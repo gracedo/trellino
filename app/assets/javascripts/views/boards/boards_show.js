@@ -100,6 +100,7 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
     });
     
     $('.new-list-form').html(listFormView.render().$el);
+    this.$el.find('#title').focus();
   },
   
   addMemberForm: function(event) {

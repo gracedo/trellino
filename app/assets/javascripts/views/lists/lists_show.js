@@ -141,5 +141,6 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
     
     $('.new-card-form#'+this.model.id).removeClass('hidden');
     $('.new-card-form#'+this.model.id).html(cardFormView.render().$el);
+    this.$el.find('#title').focus();
   }
 })
