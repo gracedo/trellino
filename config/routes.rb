@@ -8,5 +8,5 @@ Trellino::Application.routes.draw do
     end
   resources :card_assignments, only: :destroy
   resource :session, only: [:new, :create, :destroy]
-  resources :users, only: [:new, :create, :destroy]
+  resources :users, only: [:index, :new, :create, :destroy]
 end

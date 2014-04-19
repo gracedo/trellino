@@ -2,7 +2,6 @@ Trellino.Models.Board = Backbone.Model.extend({
   urlRoot: '/boards',
   
   parse: function(jsonResponse){
-    // console.log("parsing board")
     if (jsonResponse.lists){
       this.lists().set(jsonResponse.lists, { parse: true });
       delete jsonResponse.lists;

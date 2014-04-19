@@ -12,9 +12,22 @@ Trellino.Views.MemberForm = Backbone.View.extend({
   },
   
   render: function() {
+    var memberIds = [];
+    var nonMembers = [];
+    
+    this.members.each(function(member) {
+      memberIds.push(member.id);
+    })
+    
+    Trellino.Collections.users.each(function(user) {
+      if(!_.contains(memberIds, user.id)) {
+        nonMembers.push(user);
+      }
+    })
+
     var renderedContent = this.template({
       boardID: this.board.id,
-      allUsers: Trellino.Collections.users
+      nonMembers: nonMembers
     })
     
     this.$el.html(renderedContent);
@@ -24,12 +37,12 @@ Trellino.Views.MemberForm = Backbone.View.extend({
   create: function(event) {
     var view = this;
     event.preventDefault();
-    var email = $(event.currentTarget.form).serializeJSON().user_email;
+    var email = $(event.currentTarget.form).serializeJSON().email;
     
     this.board.save({ newMemberEmail: email }, {
       success: function() {
-        // console.log(list)
         console.log("successfully added member");
+        $('.members-modal').modal('show');
       },
       error: function() {
         console.log("error - member not found");

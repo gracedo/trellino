@@ -1,5 +1,12 @@
 <form class="form-inline" role="form">
-  <input type="text" name="user_email" class="form-control input-sm member-email-input" id="user_email" placeholder="User's email">
+  <!-- <input type="text" name="user_email" class="form-control input-sm member-email-input" id="user_email" placeholder="User's email"> -->
+  
+  <!-- select box with users not already members -->
+  <select name="email">
+    <% nonMembers.forEach(function(user) { %>
+      <option value="<%= user.escape("email") %>"><%= user.escape("email") %></option>
+    <% }) %>
+  </select>
 
   <button type="submit" class="create-new-member btn btn-success btn-sm">Add</button>
   <button class="btn btn-sm btn-cancel cancel-new-member"><span class="glyphicon glyphicon-remove"></span></button>
