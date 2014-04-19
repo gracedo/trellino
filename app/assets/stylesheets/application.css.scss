@@ -358,6 +358,10 @@ a.add-card-link {
   cursor: move;
 }
 
+.card-description a {
+  color: #000000;
+}
+
 .dragged {
   transform:rotate(-3deg);
   -ms-transform:rotate(-3deg); /* IE 9 */

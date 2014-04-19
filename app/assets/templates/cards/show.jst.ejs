@@ -21,8 +21,15 @@
             <a href="#" class="edit-descr">Edit the description...</a>
           <% } %>
 
-          <button class="new-member btn btn-default btn-sm">Update</button>
-          <div class="new-member-form">
+          <div class="card-descr-form">
+            <form class="form-inline" role="form">
+              <textarea name="card_description" class="form-control input-sm card-descr-input" id="card_description" cols="50" rows="6"><%= card.escape("description") %></textarea>
+
+              <br>
+              
+              <button type="submit" class="save-card-descr btn btn-success btn-sm">Save</button>
+              <button class="btn btn-sm btn-cancel cancel-card-descr"><span class="glyphicon glyphicon-remove"></span></button>
+            </form>
           </div>
         </div>
       </div>
