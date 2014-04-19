@@ -5,7 +5,7 @@ Trellino.Views.CardsShow = Backbone.View.extend({
     this.list = options.list;
     this.allCards = options.allCards;
     
-    this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.model, "add remove", this.render);
     // this.listenTo(this.list, "change", this.render);
   },
   
@@ -38,6 +38,9 @@ Trellino.Views.CardsShow = Backbone.View.extend({
     cardToDelete.destroy({
       success: function(card) {
         console.log('deleted card');
+        $(".card-modal-"+that.model.id).modal('hide');
+        $('body').removeClass('modal-open');
+        $('.modal-backdrop').remove();
         var currListShowView = new Trellino.Views.ListsShow({
           model: that.list
         })
@@ -65,11 +68,12 @@ Trellino.Views.CardsShow = Backbone.View.extend({
     var that = this;
     event.preventDefault();
     var cardDescr = $(event.currentTarget.form).serializeJSON().card;
-    debugger
+
     this.model.save(cardDescr, {
       patch: true,
       success: function() {
         console.log("successfully saved description");
+        debugger
         $('.card-modal-'+that.model.id).modal('show');
       },
       error: function() {
