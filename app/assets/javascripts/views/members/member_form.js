@@ -45,7 +45,7 @@ Trellino.Views.MemberForm = Backbone.View.extend({
         $('.members-modal').modal('show');
       },
       error: function() {
-        console.log("error - member not found");
+        console.log("error adding member");
       }
     })
   },

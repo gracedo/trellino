@@ -12,7 +12,9 @@ Trellino.Views.CardsShow = Backbone.View.extend({
   events: {
     "click button.remove-card": "removeCard",
     "mouseover .card": "addDeleteButton",
-    "mouseleave .card": "removeDeleteButton"
+    "mouseleave .card": "removeDeleteButton",
+    "click a.edit-descr": "addDescrForm",
+    "click button.save-card-descr": "saveDescr"
   },
   
   render: function() {
@@ -51,5 +53,28 @@ Trellino.Views.CardsShow = Backbone.View.extend({
   
   removeDeleteButton: function(event) {
     $(event.target).find('.remove-card').addClass('hidden');
+  },
+  
+  addDescrForm: function(event) {
+    event.preventDefault();
+    $('.card-descr-form').removeClass("hidden");
+    $('.card-descr-textarea').focus();
+  },
+  
+  saveDescr: function(event) {
+    var that = this;
+    event.preventDefault();
+    var cardDescr = $(event.currentTarget.form).serializeJSON().card;
+    debugger
+    this.model.save(cardDescr, {
+      patch: true,
+      success: function() {
+        console.log("successfully saved description");
+        $('.card-modal-'+that.model.id).modal('show');
+      },
+      error: function() {
+        console.log("failed to save description");
+      }
+    })
   }
 });
