@@ -14,6 +14,7 @@ Trellino.Views.CardsShow = Backbone.View.extend({
     "mouseover .card": "addDeleteButton",
     "mouseleave .card": "removeDeleteButton",
     "click a.edit-descr": "addDescrForm",
+    "click button.cancel-card-descr": "removeDescrForm",
     "click button.save-card-descr": "saveDescr"
   },
   
@@ -68,6 +69,12 @@ Trellino.Views.CardsShow = Backbone.View.extend({
     $('.card-descr-form').removeClass("hidden");
     $('.edit-descr').addClass("hidden");
     $('.card-descr-textarea').focus();
+  },
+  
+  removeDescrForm: function(event) {
+    event.preventDefault();
+    $('.card-descr-form').addClass("hidden");
+    $('.edit-descr').removeClass("hidden");
   },
   
   saveDescr: function(event) {

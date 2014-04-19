@@ -45,6 +45,7 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
       dropOnEmpty: true,
       placeholder: "ui-state-highlight",
       forcePlaceholderSize: true,
+      cancel: ".modal",
       start: function(event, ui) {
         $(ui.item).toggleClass('dragged');
       }
