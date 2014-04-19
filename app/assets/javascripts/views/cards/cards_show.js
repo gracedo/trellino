@@ -22,10 +22,15 @@ Trellino.Views.CardsShow = Backbone.View.extend({
       card: this.model,
       list: this.list
     })
-    
+
+    var cardDescrShowView = new Trellino.Views.DescrCardsShow({
+      model: this.model
+    })
+
     $('.add-card-link-container').removeClass('hidden');
     $('.new-card-form').addClass('hidden');
     this.$el.html(renderedContent);
+    this.$el.find('.card-description').html(cardDescrShowView.render().$el);
     return this;
   },
   
@@ -73,8 +78,8 @@ Trellino.Views.CardsShow = Backbone.View.extend({
       patch: true,
       success: function() {
         console.log("successfully saved description");
-        debugger
         $('.card-modal-'+that.model.id).modal('show');
+        $('.card-descr-form').addClass("hidden");
       },
       error: function() {
         console.log("failed to save description");

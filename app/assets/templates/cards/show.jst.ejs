@@ -6,31 +6,32 @@
     </div>
   </a>
 
-  <div class="card-description">
-    <div class="modal fade card-modal-<%= card.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title"><%= card.escape("title") %></h4>
+  <div class="modal fade card-modal-<%= card.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title"><%= card.escape("title") %></h4>
+        </div>
+  
+        <% if(card.escape("description")) { %>
+          <div class="card-description">
           </div>
-    
-          <% if(card.escape("description")) { %>
-            <%= card.escape("description") %>
-          <% } else { %>
-            <a href="#" class="edit-descr">Edit the description...</a>
-          <% } %>
+        <% } else { %>
+          <a href="#" class="edit-descr">Edit the description...</a>
+        <% } %>
+        
+        <br>
 
-          <div class="card-descr-form">
-            <form class="form-inline" role="form">
-              <textarea name="card[description]" class="form-control input-sm card-descr-textarea" id="card[description]" cols="60" rows="6"><%= card.escape("description") %></textarea>
+        <div class="card-descr-form">
+          <form class="form-inline" role="form">
+            <textarea name="card[description]" class="form-control input-sm card-descr-textarea" id="card[description]" cols="60" rows="6"><%= card.escape("description") %></textarea>
 
-              <br>
-              
-              <button type="submit" class="save-card-descr btn btn-success btn-sm">Save</button>
-              <button class="btn btn-sm btn-cancel cancel-card-descr"><span class="glyphicon glyphicon-remove"></span></button>
-            </form>
-          </div>
+            <br>
+            
+            <button type="submit" class="save-card-descr btn btn-success btn-sm">Save</button>
+            <button class="btn btn-sm btn-cancel cancel-card-descr"><span class="glyphicon glyphicon-remove"></span></button>
+          </form>
         </div>
       </div>
     </div>
