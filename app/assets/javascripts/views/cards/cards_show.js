@@ -66,6 +66,7 @@ Trellino.Views.CardsShow = Backbone.View.extend({
   addDescrForm: function(event) {
     event.preventDefault();
     $('.card-descr-form').removeClass("hidden");
+    $('.edit-descr').addClass("hidden");
     $('.card-descr-textarea').focus();
   },
   
@@ -78,6 +79,7 @@ Trellino.Views.CardsShow = Backbone.View.extend({
       patch: true,
       success: function() {
         console.log("successfully saved description");
+        $('.edit-descr').removeClass("hidden");
         $('.card-modal-'+that.model.id).modal('show');
         $('.card-descr-form').addClass("hidden");
       },

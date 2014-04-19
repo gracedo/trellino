@@ -11,19 +11,19 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title"><%= card.escape("title") %></h4>
+          <h3 class="modal-title"><%= card.escape("title") %></h3>
         </div>
-  
+        
+        <h4>Description</h4>
         <% if(card.escape("description")) { %>
           <div class="card-description">
           </div>
+          <br>
         <% } else { %>
-          <a href="#" class="edit-descr">Edit the description...</a>
+          <a href="#" class="edit-descr">Edit the description...</a><br>
         <% } %>
-        
-        <br>
 
-        <div class="card-descr-form">
+        <div class="card-descr-form hidden">
           <form class="form-inline" role="form">
             <textarea name="card[description]" class="form-control input-sm card-descr-textarea" id="card[description]" cols="60" rows="6"><%= card.escape("description") %></textarea>
 
