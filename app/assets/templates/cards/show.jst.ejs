@@ -1,7 +1,31 @@
 <div class="card card-block" data-id="<%= card.id %>" data-rank="<%= card.escape("rank") %> " data-list-id="<%= list.id %>">
   
-  <div class="card-text clearfix">
-    <%= card.escape("title") %> <button class="remove-card btn btn-danger btn-xs hidden"><span class="glyphicon glyphicon-trash"></span></button>
-  </div>
+  <a href="#" data-toggle="modal" data-target=".card-modal-<%= card.id %>">
+    <div class="card-text clearfix">
+      <%= card.escape("title") %> <button class="remove-card btn btn-danger btn-xs hidden"><span class="glyphicon glyphicon-trash"></span></button>
+    </div>
+  </a>
 
+  <div class="card-description">
+    <div class="modal fade card-modal-<%= card.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title"><%= card.escape("title") %></h4>
+          </div>
+    
+          <% if(card.escape("description")) { %>
+            <%= card.escape("description") %>
+          <% } else { %>
+            <a href="#" class="edit-descr">Edit the description...</a>
+          <% } %>
+
+          <button class="new-member btn btn-default btn-sm">Update</button>
+          <div class="new-member-form">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
