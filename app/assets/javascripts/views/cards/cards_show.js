@@ -13,6 +13,7 @@ Trellino.Views.CardsShow = Backbone.View.extend({
     "click button.remove-card": "removeCard",
     "mouseover .card": "addDeleteButton",
     "mouseleave .card": "removeDeleteButton",
+    "click a.add-descr": "addDescrForm",
     "click a.edit-descr": "addDescrForm",
     "click button.cancel-card-descr": "removeDescrForm",
     "click button.save-card-descr": "saveDescr",
@@ -68,14 +69,14 @@ Trellino.Views.CardsShow = Backbone.View.extend({
   addDescrForm: function(event) {
     event.preventDefault();
     $('.card-descr-form').removeClass("hidden");
-    $('.edit-descr').addClass("hidden");
+    $('.add-descr').addClass("hidden");
     $('.card-descr-textarea').focus();
   },
   
   removeDescrForm: function(event) {
     event.preventDefault();
     $('.card-descr-form').addClass("hidden");
-    $('.edit-descr').removeClass("hidden");
+    $('.add-descr').removeClass("hidden");
   },
   
   saveDescr: function(event) {
@@ -87,7 +88,7 @@ Trellino.Views.CardsShow = Backbone.View.extend({
       patch: true,
       success: function() {
         console.log("successfully saved description");
-        $('.edit-descr').removeClass("hidden");
+        $('.add-descr').removeClass("hidden");
         $('.card-modal-'+that.model.id).modal('show');
         $('.card-descr-form').addClass("hidden");
       },
