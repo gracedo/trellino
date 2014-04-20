@@ -40,7 +40,7 @@ cards = Card.create!([
   {list_id: 1, rank: 1, title: "Clean dishes"},
   {list_id: 1, rank: 2, title: "Mop kitchen"},
   #Doing: List 2 on Home
-  {list_id: 2, rank: 1, title: "Fix back door"},
+  {list_id: 2, rank: 1, title: "Fix back door", description: "Home Depot for tools?"},
   #Done: List 3 on Home
   {list_id: 3, rank: 1, title: "Water plants"},
   {list_id: 3, rank: 2, title: "Fold sheets"},
@@ -53,5 +53,5 @@ cards = Card.create!([
   {list_id: 5, rank: 2, title: "Look into bigger office space"},
   #Optional: List 6 on Work
   {list_id: 6, rank: 1, title: "Review workflows"},
-  {list_id: 6, rank: 2, title: "Redecorate conference room"}
+  {list_id: 6, rank: 2, title: "Redecorate conference room", description: "Figure out budget for this"}
 ])
