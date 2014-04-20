@@ -361,6 +361,10 @@ a.add-card-link {
 //  z-index: 10;
 }
 
+a.card-modal:hover {
+  text-decoration: none;
+}
+
 .card-block:hover {
   background-color: #F0F0F0;
   cursor: move;
