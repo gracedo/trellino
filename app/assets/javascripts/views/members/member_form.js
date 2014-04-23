@@ -8,7 +8,8 @@ Trellino.Views.MemberForm = Backbone.View.extend({
   
   events: {
     "click button.create-new-member": "create",
-    "click button.cancel-new-member": "removeMemberForm"
+    "click button.cancel-new-member": "removeMemberForm"// ,
+//     "blur .member-form": "removeMemberForm"
   },
   
   render: function() {
@@ -52,6 +53,7 @@ Trellino.Views.MemberForm = Backbone.View.extend({
   
   removeMemberForm: function(event) {
     event.preventDefault();
+    console.log("removing form");
     $('.new-member-form').empty();
     $('.new-member').removeClass("hidden");
   }

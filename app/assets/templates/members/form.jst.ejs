@@ -1,8 +1,9 @@
-<form class="form-inline" role="form">
+<form class="form-inline member-form" role="form">
   <!-- <input type="text" name="user_email" class="form-control input-sm member-email-input" id="user_email" placeholder="User's email"> -->
   
   <!-- select box with users not already members -->
   <select name="email">
+    <option></option>
     <% nonMembers.forEach(function(user) { %>
       <option value="<%= user.escape("email") %>"><%= user.escape("email") %></option>
     <% }) %>
