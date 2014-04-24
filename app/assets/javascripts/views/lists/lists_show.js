@@ -43,7 +43,6 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
     $('.modal-backdrop').remove();
     
     $(this.$el.find("div.cards-list")).sortable({
-      cursor: "move",
       opacity: 1,
       connectWith: "div.cards-list",
       dropOnEmpty: true,

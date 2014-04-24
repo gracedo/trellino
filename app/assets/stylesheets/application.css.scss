@@ -229,6 +229,10 @@ div.board-title {
   background: #f0f0f0;
 }
 
+.modal:hover {
+  cursor: default;
+}
+
 .modal-header {
   padding: 0 10px;
   margin-bottom: 10px;
@@ -376,6 +380,12 @@ div.card .modal a {
 
 .card-descr-form, .card-description {
   padding-left: 50px;
+}
+
+div.add-descr:hover {
+  background-color: #DBDBDB;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .card-descr-textarea {
