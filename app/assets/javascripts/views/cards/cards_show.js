@@ -23,13 +23,15 @@ Trellino.Views.CardsShow = Backbone.View.extend({
   render: function() {
     var renderedContent = this.template({
       card: this.model,
-      list: this.list
+      list: this.list,
+      board: Trellino.Collections.boards.get(this.list.escape("board_id"))
     })
 
     var cardDescrShowView = new Trellino.Views.DescrCardsShow({
       model: this.model
     })
 
+    Trellino.Collections.boards.fetch();
     $('.add-card-link-container').removeClass('hidden');
     $('.new-card-form').addClass('hidden');
     this.$el.html(renderedContent);
