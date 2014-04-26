@@ -198,6 +198,11 @@ div.board-title {
   display: inline-block;
 }
 
+#board-settings-button:hover {
+  opacity: 0.4;
+  color: inherit;
+}
+
 .members-modal {
   color: #000000;
 }
