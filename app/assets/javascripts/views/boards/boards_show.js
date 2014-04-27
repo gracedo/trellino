@@ -21,7 +21,7 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
   events: {
     "click a.add-list-link": "addListForm",
     "click button.new-member": "addMemberForm",
-    "click a.remove-board": "removeBoard",
+    "click .remove-board": "removeBoard",
     "click button.edit-board-title": "editBoardTitle"
   },
   
@@ -138,7 +138,10 @@ Trellino.Views.BoardsShow = Backbone.CompositeView.extend({
     this.model.destroy({
       success: function(model) {
         console.log("deleted board " + model.id + ", titled " + model.get("title"));
-        Backbone.history.navigate('', { trigger: true })
+        $(".delete-board-modal").modal('hide');
+        $('body').removeClass('modal-open');
+        $('.modal-backdrop').remove();
+        Backbone.history.navigate('', { trigger: true });
       },
       error: function(model) {
         console.log("error deleting board " + model.id + ", titled " + model.get("title"))

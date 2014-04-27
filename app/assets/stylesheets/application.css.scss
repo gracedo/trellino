@@ -222,6 +222,10 @@ div.board-title {
   color: inherit;
 }
 
+button.remove-board {
+  opacity: 1;
+}
+
 .modal {
   color: #000000;
   -moz-user-select: none; /* These user-select properties are inheritable, used to prevent text selection */
