@@ -110,6 +110,9 @@ Trellino.Views.ListsShow = Backbone.CompositeView.extend({
           model: that.board
         })
 
+        $(".delete-list-modal").modal('hide');
+        $('body').removeClass('modal-open');
+        $('.modal-backdrop').remove();
         currBoardShowView.removeSubview(".lists-container", that); // remove list showview from board subviews
         console.log("successfully deleted list");
       },

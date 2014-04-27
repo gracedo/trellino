@@ -222,7 +222,7 @@ div.board-title {
   color: inherit;
 }
 
-button.remove-board {
+button.remove-board, button.remove-list {
   opacity: 1;
 }
 
@@ -235,6 +235,7 @@ button.remove-board {
 
   -webkit-user-drag: none; /* Prevents dragging of images/divs etc */
   user-drag: none;
+  white-space: normal;
 }
 
 .modal-content {
@@ -486,11 +487,11 @@ button.cancel-member {
   width: 67%;
 }
 
-.remove-card, .remove-list {
+.remove-card {
   float: right;
 }
 
-.remove-list {
+.remove-list-button {
   padding: 4px 5px;
   position: absolute;
   top: 4px;
