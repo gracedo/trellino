@@ -47,8 +47,6 @@ Trellino.Views.CardsShow = Backbone.View.extend({
     cardToDelete.destroy({
       success: function(card) {
         console.log('deleted card');
-        $(".card-modal-"+that.model.id).modal('hide');
-        $('body').removeClass('modal-open');
         $('.modal-backdrop').remove();
         var currListShowView = new Trellino.Views.ListsShow({
           model: that.list
