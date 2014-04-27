@@ -1,8 +1,8 @@
 <div class="list-container col-md-3 clearfix" data-id="<%= list.id %>" data-rank="<%= list.escape("rank") %> ">
 
-  <h4 class="list-header"><%= list.escape("title") %> <a href="#" data-toggle="modal" data-target=".delete-list-modal"><button class="remove-list-button btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></button></a></h4>
+  <h4 class="list-header"><%= list.escape("title") %> <a href="#" data-toggle="modal" data-target=".list-<%= list.id %>"><button class="remove-list-button btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></button></a></h4>
   
-  <div class="modal fade delete-list-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal fade delete-list-modal list-<%= list.id %>" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
