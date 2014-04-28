@@ -11,6 +11,7 @@ Trellino.Views.CardsShow = Backbone.View.extend({
   
   events: {
     "click button.remove-card": "removeCard",
+    "click button.modal-remove-card": "removeCard",
     "mouseover .card": "addDeleteButton",
     "mouseleave .card": "removeDeleteButton",
     "click div.add-descr": "addDescrForm",
