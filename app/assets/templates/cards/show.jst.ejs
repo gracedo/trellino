@@ -11,8 +11,8 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h3 class="modal-title"><span class="" id="card-title"><%= card.escape("title") %> <a href="#" class="edit-card-title"> <span class="glyphicon glyphicon-pencil btn-sm"></span></a></span>
-            <span id="card-title-input">
+          <h3 class="modal-title"><span id="card-title"><%= card.escape("title") %> <a href="#" class="edit-card-title"> <span class="glyphicon glyphicon-pencil btn-sm"></span></a></span>
+            <span id="card-title-form" class="hidden">
               <form class="form-inline" role="form">
                 <div class="form-group">
                   <input type="text" class="form-control" name="card[title]" value="<%= card.escape("title") %>" id="title">
