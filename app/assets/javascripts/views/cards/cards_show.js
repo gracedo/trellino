@@ -81,7 +81,7 @@ Trellino.Views.CardsShow = Backbone.View.extend({
     
     this.$el.find('#card-title-form').removeClass("hidden");
     this.$el.find('#card-title').addClass("hidden");
-    this.$el.find('.card-title-input').focus().val($(".card-title-input").val());
+    this.$el.find('.card-title-input').focus();
   },
   
   editCardTitle: function(event) {
@@ -111,7 +111,7 @@ Trellino.Views.CardsShow = Backbone.View.extend({
     event.preventDefault();
     $('.card-descr-form').removeClass("hidden");
     $('.add-descr').addClass("hidden");
-    $('.card-descr-textarea').focus();
+    $('.card-descr-textarea').focus().select();
   },
   
   removeForms: function(event) {
