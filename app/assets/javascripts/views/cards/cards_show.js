@@ -15,6 +15,7 @@ Trellino.Views.CardsShow = Backbone.View.extend({
     "mouseover .card": "addDeleteButton",
     "mouseleave .card": "removeDeleteButton",
     "click a.edit-card-title": "addEditTitleForm",
+    "click button.save-title": "editCardTitle",
     "click div.add-descr": "addDescrForm",
     "click a.edit-descr": "addDescrForm",
     "click button.cancel-card-descr": "removeDescrForm",
@@ -72,6 +73,25 @@ Trellino.Views.CardsShow = Backbone.View.extend({
     
     $('#card-title-form').removeClass("hidden");
     $('#card-title').addClass("hidden");
+    this.$el.find('#card-title-form input').focus();
+  },
+  
+  editCardTitle: function(event) {
+    event.preventDefault();
+    var $formData = $(event.currentTarget.form).serializeJSON().card;
+
+    this.model.save($formData, {
+      patch: true,
+      success: function() {
+        console.log("card successfully updated");
+        $('#card-title-form').addClass("hidden");
+        $('#card-title').removeClass("hidden");
+      },
+      error: function() {
+        console.log("card was not updated");
+        console.log(arguments[1].responseText);
+      }
+    })
   },
   
   addDescrForm: function(event) {
