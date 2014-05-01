@@ -5,7 +5,7 @@ Trellino.Views.CardsShow = Backbone.View.extend({
     this.list = options.list;
     this.allCards = options.allCards;
     
-    this.listenTo(this.model, "add remove", this.render);
+    this.listenTo(this.model, "add remove change:title", this.render);
     // this.listenTo(this.list, "change", this.render);
   },
   
@@ -77,6 +77,7 @@ Trellino.Views.CardsShow = Backbone.View.extend({
   },
   
   editCardTitle: function(event) {
+    var that = this;
     event.preventDefault();
     var $formData = $(event.currentTarget.form).serializeJSON().card;
 
@@ -84,7 +85,11 @@ Trellino.Views.CardsShow = Backbone.View.extend({
       patch: true,
       success: function() {
         console.log("card successfully updated");
+        $('.card-modal-'+that.model.id).modal('hide');
+        $('body').removeClass('modal-open');
+        $('.modal-backdrop').remove();
         $('#card-title-form').addClass("hidden");
+        // $('.card-modal-'+that.model.id).modal('show');
         $('#card-title').removeClass("hidden");
       },
       error: function() {
