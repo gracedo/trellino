@@ -15,7 +15,7 @@
             <span id="card-title-form" class="hidden">
               <form class="form-inline" role="form">
                 <div class="form-group">
-                  <input type="text" class="card-title-input form-control" name="card[title]" value="<%= card.escape("title") %>" id="title" autofocus>
+                  <input type="text" class="card-title-input form-control" placeholder="Untitled card" name="card[title]" value="<%= card.escape("title") %>" id="title" autofocus>
                   <button type="submit" class="btn btn-success btn-sm save-title">Save</button>
                   <button class="btn btn-sm btn-cancel cancel-card-title"><span class="glyphicon glyphicon-remove"></span></button>
                 </div>
@@ -38,7 +38,7 @@
 
         <div class="card-descr-form hidden">
           <form class="form-inline" role="form">
-            <textarea name="card[description]" class="form-control input-sm card-descr-textarea" id="card[description]" cols="60" rows="6" autofocus><%= card.escape("description") %></textarea>
+            <textarea name="card[description]" class="form-control input-sm card-descr-textarea" id="card[description]" placeholder="Add card description..." cols="60" rows="6" autofocus><%= card.escape("description") %></textarea>
 
             <br>
             
