@@ -20,7 +20,9 @@ Trellino.Views.CardsShow = Backbone.View.extend({
     "click a.edit-descr": "addDescrForm",
     "click button.cancel-card-descr": "removeDescrForm",
     "click button.save-card-descr": "saveDescr",
-    "click a.card-modal": "removeForms"
+    "click a.card-modal": "removeForms",
+    "blur .card-title-input": "removeTitleForm",
+    "blur .card-descr-textarea": "removeDescrForm"
   },
   
   render: function() {
@@ -139,5 +141,17 @@ Trellino.Views.CardsShow = Backbone.View.extend({
         console.log("failed to save description");
       }
     })
+  },
+  
+  removeTitleForm: function(event) {
+    event.preventDefault();
+    this.$el.find('#card-title-form').addClass("hidden");
+    this.$el.find('#card-title').removeClass("hidden");
+  },
+  
+  removeDescrForm: function(event) {
+    event.preventDefault();
+    $('.card-descr-form').addClass("hidden");
+    $('.add-descr').removeClass("hidden");
   }
 });
