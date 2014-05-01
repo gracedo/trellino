@@ -42,6 +42,10 @@ Trellino.Views.CardsShow = Backbone.View.extend({
     this.$el.find('input').bind('click mouseup mousedown keypress keydown keyup', function(e) {
       e.stopPropagation();
     });
+
+    this.$el.find('textarea').bind('click mouseup mousedown keypress keydown keyup', function(e) {
+      e.stopPropagation();
+    });
     return this;
   },
   
@@ -77,7 +81,7 @@ Trellino.Views.CardsShow = Backbone.View.extend({
     
     this.$el.find('#card-title-form').removeClass("hidden");
     this.$el.find('#card-title').addClass("hidden");
-    this.$el.find('.card-title-input').focus().val($(".card-title-input").val());;
+    this.$el.find('.card-title-input').focus().val($(".card-title-input").val());
   },
   
   editCardTitle: function(event) {
