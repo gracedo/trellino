@@ -45,6 +45,7 @@ Trellino.Views.ListForm = Backbone.View.extend({
       },
       error: function() {
         console.log("error creating list");
+        //dont render blank
         that.$('#title').effect("highlight", {}, 700);
       }
     })
