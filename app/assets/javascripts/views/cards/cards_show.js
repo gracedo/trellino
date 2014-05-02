@@ -105,6 +105,10 @@ Trellino.Views.CardsShow = Backbone.View.extend({
       },
       error: function() {
         console.log("card was not updated");
+        //do not render blank card title
+        $('body').removeClass('modal-open');
+        $('.modal-backdrop').remove();
+        $('.card-modal-'+that.model.id).modal('show');
         that.$('#title').effect("highlight", {}, 700);
         console.log(arguments[1].responseText);
       }
