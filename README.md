@@ -1,4 +1,4 @@
-# Trellino
+# Trellojello
 
 (Ruby on Rails, Backbone.js, JavaScript, jQuery, CSS3, HTML5)
 
